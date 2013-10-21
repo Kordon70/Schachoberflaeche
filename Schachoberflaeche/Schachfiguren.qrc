@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/King-white_256x256_32.png</file>
+        <file>images/Yanni.jpg</file>
+    </qresource>
+</RCC>
