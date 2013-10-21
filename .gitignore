@@ -15,3 +15,10 @@
 *.user
 build-Schachoberflaeche-Desktop_Qt_5_1_1_GCC_64bit-Debug/*
 Makefile
+
+Debug/*
+GeneratedFiles/*
+TestResults/*
+*.sdf
+*.opensdf
+*.suo

@@ -12,15 +12,15 @@ TARGET = Schachoberflaeche
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-    humanplayer.cpp \
-    field.cpp \
-    chessfield.cpp
+SOURCES += Schachoberflaeche/main.cpp\
+    Schachoberflaeche/humanplayer.cpp \
+    Schachoberflaeche/field.cpp \
+    Schachoberflaeche/chessfield.cpp
 
 HEADERS  += \
-    humanplayer.h \
-    field.h \
-    chessfield.h
+    Schachoberflaeche/humanplayer.h \
+    Schachoberflaeche/field.h \
+    Schachoberflaeche/chessfield.h
 
 RESOURCES += \
-    Schachfiguren.qrc
+    Schachoberflaeche/Schachfiguren.qrc
