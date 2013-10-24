@@ -1,14 +1,18 @@
 #include "field.h"
 #include <QtGui>
 
-Field::Field(const QString color, const QPixmap* image, QWidget *parent)
+Field::Field(const Farbe backgroundColor, const QPixmap* image, QWidget *parent)
     : QFrame(parent)
 {
-    setMinimumSize(200,200);
+    setMinimumSize(100,100);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
     this->setGeometry(0,0,300,100);
-    this->setStyleSheet(color);
+    if (backgroundColor == WEISS) {
+        this->setStyleSheet("background-color:white;");
+    } else if (backgroundColor == SCHWARZ) {
+        this->setStyleSheet("background-color:grey;");
+    }
 
     figure = new QLabel(this);
     if (image != 0) {

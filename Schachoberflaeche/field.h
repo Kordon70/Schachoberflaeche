@@ -1,6 +1,7 @@
 #ifndef SCHACHOBERFLAECHE_H
 #define SCHACHOBERFLAECHE_H
 
+#include <../../SchachLogik/src/Farbe.h>
 #include <QFrame>
 #include <QLabel>
 
@@ -12,7 +13,7 @@ private:
 
 public:
 
-    Field(const QString color, const QPixmap* image = 0, QWidget *parent = 0);
+    Field(const Farbe backgroundColor, const QPixmap* image = 0, QWidget *parent = 0);
     ~Field();
     void changePicture(QPixmap picture);
 
