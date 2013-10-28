@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Schachoberflaeche", "Schachoberflaeche.vcxproj", "{88CCCB3C-B359-3B8F-AA10-0FF491ED9049}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SchachLogik", "..\SchachLogik\SchachLogik\SchachLogik.vcxproj", "{5C8529DB-3FCF-48F8-93F0-7249101F67D2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SchachlogikTest", "..\SchachLogik\SchachlogikTest\SchachlogikTest.vcxproj", "{1D644551-786A-4E03-B0E5-9D81217DF434}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88CCCB3C-B359-3B8F-AA10-0FF491ED9049}.Debug|Win32.ActiveCfg = Debug|Win32
+		{88CCCB3C-B359-3B8F-AA10-0FF491ED9049}.Debug|Win32.Build.0 = Debug|Win32
+		{88CCCB3C-B359-3B8F-AA10-0FF491ED9049}.Release|Win32.ActiveCfg = Release|Win32
+		{88CCCB3C-B359-3B8F-AA10-0FF491ED9049}.Release|Win32.Build.0 = Release|Win32
+		{5C8529DB-3FCF-48F8-93F0-7249101F67D2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5C8529DB-3FCF-48F8-93F0-7249101F67D2}.Debug|Win32.Build.0 = Debug|Win32
+		{5C8529DB-3FCF-48F8-93F0-7249101F67D2}.Release|Win32.ActiveCfg = Release|Win32
+		{5C8529DB-3FCF-48F8-93F0-7249101F67D2}.Release|Win32.Build.0 = Release|Win32
+		{1D644551-786A-4E03-B0E5-9D81217DF434}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1D644551-786A-4E03-B0E5-9D81217DF434}.Debug|Win32.Build.0 = Debug|Win32
+		{1D644551-786A-4E03-B0E5-9D81217DF434}.Release|Win32.ActiveCfg = Release|Win32
+		{1D644551-786A-4E03-B0E5-9D81217DF434}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
