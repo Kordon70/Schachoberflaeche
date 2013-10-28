@@ -1,7 +1,7 @@
 #ifndef HUMANPLAYER_H
 #define HUMANPLAYER_H
 
-#include "../../SchachLogik/src/Beobachter.h"
+#include "../../SchachLogik/SchachLogik/src/Beobachter.h"
 
 class HumanPlayer : public Beobachter
 {

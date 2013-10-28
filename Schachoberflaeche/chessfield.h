@@ -1,8 +1,8 @@
 #ifndef CHESSFIELD_H
 #define CHESSFIELD_H
 
-#include <field.h>
-#include <../../SchachLogik/src/Farbe.h>
+#include "field.h"
+#include <../../SchachLogik/SchachLogik/src/Farbe.h>
 #include <vector>
 #include <QHBoxLayout>
 #include <QVBoxLayout>

@@ -2,7 +2,7 @@
 #include "chessfield.h"
 #include <QApplication>
 #include <QHBoxLayout>
-#include <newgamebutton.h>
+#include "newgamebutton.h"
 //#include "../../SchachLogik/src/Logik.h"
 //#include "humanplayer.h"
 

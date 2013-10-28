@@ -1,7 +1,7 @@
 #ifndef SCHACHOBERFLAECHE_H
 #define SCHACHOBERFLAECHE_H
 
-#include <../../SchachLogik/src/Farbe.h>
+#include <../../../SchachLogik/SchachLogik/src/Farbe.h>
 #include <QFrame>
 #include <QLabel>
 
