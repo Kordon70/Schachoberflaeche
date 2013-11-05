@@ -4,18 +4,20 @@
 #include "../../SchachLogik/SchachLogik/src/Farbe.h"
 #include <QFrame>
 #include <QLabel>
+#include "../../SchachLogik/SchachLogik/src/Figur.h"
 
 class Field: public QFrame
 {
     Q_OBJECT
 private:
     QLabel* figure;
+	QPixmap* figureToPicture(Figuren figur);
 
 public:
 
     Field(const Farbe backgroundColor, const QPixmap* image = 0, QWidget *parent = 0);
     ~Field();
-    void changePicture(QPixmap picture);
+	void changePicture(pair<Figuren, Farbe>* figur);
 
 
 };

@@ -23,10 +23,26 @@ Field::Field(const Farbe backgroundColor, const QPixmap* image, QWidget *parent)
     figure->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-void Field::changePicture(QPixmap picture) {
-    figure->setPixmap(picture);
-    figure->show();
-    figure->setAttribute(Qt::WA_DeleteOnClose);
+void Field::changePicture(pair<Figuren, Farbe>* figur) {
+	QPixmap* bild = figureToPicture(figur->first);
+	figure->setPixmap(*bild);
+	figure->show();
+	figure->setAttribute(Qt::WA_DeleteOnClose);
+}
+
+QPixmap* Field::figureToPicture(Figuren figur) {
+	switch (figur)
+	{
+	case KOENIG:
+		return new QPixmap();
+	case DAME:
+	case BAUER:
+	case TURM:
+	case LAEUFER:
+	case SPRINGER:
+	default:
+		return new QPixmap(QString("E:\\Schach\\Schachoberflaeche\\Schachoberflaeche\\images\\King-white_256x256_32.png"));
+	}
 }
 
 

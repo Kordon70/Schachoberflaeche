@@ -3,14 +3,16 @@
 
 #include "field.h"
 #include <../../SchachLogik/SchachLogik/src/Farbe.h>
+#include "../logicChessField.h"
 #include <vector>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
 using namespace std;
 
-class chessField
+class chessField : public QObject
 {
+	Q_OBJECT
 private:
     vector<vector<Field*>* > chessFiedVector;
     QVBoxLayout* verticalLayout;
@@ -22,6 +24,12 @@ private:
 public:
     chessField();
     QVBoxLayout* initializeChessField();
+	void setFiguresOnTheChessfield(SchachBrettAusgabe* logikSchachbrett);
+
+public slots:
+	void startNewGame();
+
+signals:
 };
 
 #endif // CHESSFIELD_H

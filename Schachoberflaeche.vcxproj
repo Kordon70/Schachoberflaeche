@@ -135,6 +135,9 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GeneratedFiles\Debug\moc_chessfield.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_field.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -147,12 +150,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_chessfield.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_field.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_newgamebutton.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="logicChessField.cpp" />
     <ClCompile Include="Schachoberflaeche\chessfield.cpp" />
     <ClCompile Include="Schachoberflaeche\field.cpp" />
     <ClCompile Include="Schachoberflaeche\humanplayer.cpp" />
@@ -160,7 +167,16 @@
     <ClCompile Include="Schachoberflaeche\newgamebutton.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Schachoberflaeche\chessfield.h" />
+    <CustomBuild Include="Schachoberflaeche\chessfield.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing chessfield.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing chessfield.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+    </CustomBuild>
     <CustomBuild Include="Schachoberflaeche\newgamebutton.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing newgamebutton.h...</Message>
@@ -181,6 +197,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
+    <ClInclude Include="logicChessField.h" />
     <ClInclude Include="Schachoberflaeche\humanplayer.h" />
   </ItemGroup>
   <ItemGroup>

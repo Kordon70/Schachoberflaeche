@@ -43,7 +43,7 @@ vector<Field* >* chessField::emptyHorizontalRowStartsWithWhite() {
     QHBoxLayout* horizontalLayout = new QHBoxLayout;
     for(int i = 0; i < 8; i++) {
         if (i%2==0) {
-            result->push_back(createFieldAndAddToLayout(horizontalLayout, WEISS));
+			result->push_back(createFieldAndAddToLayout(horizontalLayout, WEISS));
         } else {
             result->push_back(createFieldAndAddToLayout(horizontalLayout, SCHWARZ));
         }
@@ -53,7 +53,19 @@ vector<Field* >* chessField::emptyHorizontalRowStartsWithWhite() {
 }
 
 Field* chessField::createFieldAndAddToLayout(QHBoxLayout* layout, Farbe fieldColor) {
-    Field* result = new Field(fieldColor);
+	Field* result = new Field(fieldColor, new QPixmap(QString("E:\\Schach\\Schachoberflaeche\\Schachoberflaeche\\images\\Yanni.png")));
     layout->addWidget(result);
     return result;
+}
+
+void chessField::startNewGame() {
+
+}
+
+void chessField::setFiguresOnTheChessfield(SchachBrettAusgabe* logikSchachbrett) {
+	for(unsigned row = 0; row < 8; row++) {
+		for(unsigned column = 0; column < 8; column++) {
+			chessFiedVector[row]->at(column)->changePicture(&logikSchachbrett->getFigurAnPosition(Position(column, row)));
+		}
+	}
 }

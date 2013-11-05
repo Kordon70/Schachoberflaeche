@@ -87,17 +87,26 @@
     <ClCompile Include="Schachoberflaeche\newgamebutton.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_chessfield.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_chessfield.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="logicChessField.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Schachoberflaeche\chessfield.h">
-      <Filter>Header Dateien</Filter>
-    </ClInclude>
     <CustomBuild Include="Schachoberflaeche\field.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
     <ClInclude Include="Schachoberflaeche\humanplayer.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
+    <CustomBuild Include="Schachoberflaeche\chessfield.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <None Include="Schachoberflaeche\images\King-white_256x256_32.png">
@@ -114,5 +123,10 @@
     <CustomBuild Include="Schachoberflaeche\newgamebutton.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="logicChessField.h">
+      <Filter>Header Dateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
