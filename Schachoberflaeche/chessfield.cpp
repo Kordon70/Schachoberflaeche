@@ -53,7 +53,7 @@ vector<Field* >* chessField::emptyHorizontalRowStartsWithWhite() {
 }
 
 Field* chessField::createFieldAndAddToLayout(QHBoxLayout* layout, Farbe fieldColor) {
-	Field* result = new Field(fieldColor, new QPixmap(":/images/King-white_256x256_32.png"));
+	Field* result = new Field(fieldColor);
     layout->addWidget(result);
     return result;
 }

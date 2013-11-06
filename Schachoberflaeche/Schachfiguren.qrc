@@ -1,6 +1,18 @@
 <RCC>
-    <qresource prefix="/">
-        <file>images/King-white_256x256_32.png</file>
-        <file>images/Yanni.jpg</file>
+    <qresource prefix="/">     
+        <file>images/Springer-weis.png</file>
+        <file>images/Springer-schwarz.png</file>
+        <file>images/Bauer-schwarz.png</file>
+        <file>images/Bauer-weis.png</file>
+        <file>images/Laeufer-schwarz.png</file>
+        <file>images/Laeufer-weis.png</file>
+        <file>images/Turm-weis.png</file>
+        <file>images/Turm-schwarz.png</file>
+        <file>images/Dame-schwarz.png</file>
+        <file>images/Dame-weis.png</file>
+        <file>images/Koenig-schwarz.png</file>
+        <file>images/Koenig-weis.png</file>
+
+        <file>images/empty.png</file>
     </qresource>
 </RCC>

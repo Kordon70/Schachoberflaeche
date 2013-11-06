@@ -129,4 +129,12 @@
       <Filter>Header Dateien</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Schachoberflaeche\images\Bauer-schwarz.png">
+      <Filter>Resource Dateien</Filter>
+    </Image>
+    <Image Include="Schachoberflaeche\images\Springer-weis.png">
+      <Filter>Resource Dateien</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

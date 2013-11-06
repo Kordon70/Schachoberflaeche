@@ -11,7 +11,7 @@ class Field: public QFrame
     Q_OBJECT
 private:
     QLabel* figure;
-	QPixmap* figureToPicture(Figuren figur);
+	QPixmap* figureToPicture(pair<Figuren, Farbe>* figur);
 
 public:
 

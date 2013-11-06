@@ -15,34 +15,46 @@ Field::Field(const Farbe backgroundColor, const QPixmap* image, QWidget *parent)
     }
 
     figure = new QLabel(this);
-    if (image != 0) {
-        figure->setPixmap(*image);
-    }
-    figure->move(0, 0);
-    figure->show();
-    figure->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 void Field::changePicture(pair<Figuren, Farbe>* figur) {
-	const QPixmap* bild = figureToPicture(figur->first);
+	const QPixmap* bild = figureToPicture(figur);
 	figure->setPixmap(*bild);
 	figure->show();
 	figure->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-QPixmap* Field::figureToPicture(Figuren figur) {
-	switch (figur)
+QPixmap* Field::figureToPicture(pair<Figuren, Farbe>* figur) {
+	QString bild;
+	switch (figur->first)
 	{
 	case KOENIG:
-		return new QPixmap();
+		bild = ":/images/Koenig-";
+		break;
 	case DAME:
+		bild = ":/images/Dame-";
+		break;
 	case BAUER:
+		bild = ":/images/Bauer-";
+		break;
 	case TURM:
+		bild = ":/images/Turm-";
+		break;
 	case LAEUFER:
+		bild = ":/images/Laeufer-";
+		break;
 	case SPRINGER:
+		bild = ":/images/Springer-";
+		break;
 	default:
-		return new QPixmap(":/images/King-white_256x256_32.png");
+		return new QPixmap(":/images/empty.png");
 	}
+	if(figur->second==SCHWARZ) {
+		bild += "schwarz.png";
+	} else {
+		bild += "weis.png";
+	}
+	return new QPixmap(bild);
 }
 
 

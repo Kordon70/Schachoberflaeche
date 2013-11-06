@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
 
     chessField* chess = new chessField;
     QVBoxLayout* verticalLayout = chess->initializeChessField();
-
+	
 	//buttons erstellen und zu layout hinzufügen
-    QPushButton* button = new QPushButton;
+	QPushButton* button = new QPushButton;
     button->setText("Neues Spiel");
 	QPushButton* buttonAnzeigen = new QPushButton;
     buttonAnzeigen->setText("Anzeigen");
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	verticalLayout->addLayout(horizonatalButtonLayout);
 
 
-    mainWidget.setLayout(verticalLayout);
+   
 
 
 //events verlinken
@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
     QWidget::connect(button,SIGNAL(clicked()),ngb, SLOT(openNewGameWindow()));
 	QWidget::connect(buttonAnzeigen,SIGNAL(clicked()),chess, SLOT(startNewGame()));
 
+
+	 mainWidget.setLayout(verticalLayout);
 	//Schachlogik erstellen und Figuren anzeigen
 	SchachLogik* logik = new SchachLogik();
 	
@@ -43,7 +45,6 @@ int main(int argc, char *argv[])
 	
 	SchachBrettAusgabe* schachBrettLogik = logik->getSpielfeld();
 	chess->setFiguresOnTheChessfield(schachBrettLogik);
-
 
 
 
