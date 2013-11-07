@@ -1,9 +1,9 @@
 #ifndef HUMANPLAYER_H
 #define HUMANPLAYER_H
 
-#include "../../SchachLogik/SchachLogik/src/Beobachter.h"
+#include "../../SchachLogik/SchachLogik/src/SpielerBenachrichtigung.h"
 
-class HumanPlayer : public Beobachter
+class HumanPlayer : public SpielerBenachrichtigung
 {
 public:
     HumanPlayer();

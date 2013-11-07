@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	verticalLayout->addLayout(horizonatalButtonLayout);
 
 
-   
+	 mainWidget.setLayout(verticalLayout);   
 
 
 //events verlinken
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	QWidget::connect(buttonAnzeigen,SIGNAL(clicked()),chess, SLOT(startNewGame()));
 
 
-	 mainWidget.setLayout(verticalLayout);
+
 	//Schachlogik erstellen und Figuren anzeigen
 	SchachLogik* logik = new SchachLogik();
 	
