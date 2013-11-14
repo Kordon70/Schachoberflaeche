@@ -9,9 +9,9 @@ Field::Field(const Farbe backgroundColor, const QPixmap* image, QWidget *parent)
     setAcceptDrops(true);
     this->setGeometry(0,0,300,100);
     if (backgroundColor == WEISS) {
-        this->setStyleSheet("background-color:white;");
-    } else if (backgroundColor == SCHWARZ) {
         this->setStyleSheet("background-color:grey;");
+    } else if (backgroundColor == SCHWARZ) {
+        this->setStyleSheet("background-color:white;");
     }
 
     figure = new QLabel(this);
