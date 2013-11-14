@@ -6,6 +6,9 @@
 #include <QLabel>
 #include "../../SchachLogik/SchachLogik/src/Figur.h"
 
+class QDragEnterEvent;
+ class QDropEvent;
+
 class Field: public QFrame
 {
     Q_OBJECT
@@ -19,7 +22,11 @@ public:
     ~Field();
 	void changePicture(pair<Figuren, Farbe>* figur);
 
-
+protected:
+	void dragEnterEvent(QDragEnterEvent *event);
+     void dragMoveEvent(QDragMoveEvent *event);
+     void dropEvent(QDropEvent *event);
+     void mousePressEvent(QMouseEvent *event);
 };
 
 #endif // SCHACHOBERFLAECHE_H
