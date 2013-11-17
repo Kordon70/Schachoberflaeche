@@ -2,61 +2,30 @@
 
 chessField::chessField() {
         verticalLayout = new QVBoxLayout;
+		schachFelder = new vector<Field*>();
+		
 }
 
-QVBoxLayout* chessField::initializeChessField() {
-    for (int row = 0; row < 8; row++) {
-        chessFiedVector.push_back(initializeHorizontalRow(row));
+QVBoxLayout* chessField::initializeChessField(SchachBrettAusgabe* logikSchach) {
+    for (unsigned int zeile = 0; zeile < 8; zeile++) {
+		QHBoxLayout* horizontalLayout = new QHBoxLayout();
+		for(unsigned int spalte = 0; spalte < 8; spalte++) {
+			feld = erzeugeFeld(new Position(zeile, spalte), logikSchach);
+			schachFelder->push_back(feld);
+			horizontalLayout->addWidget(feld);
+		}
+		verticalLayout->addLayout(horizontalLayout);
     }
     return verticalLayout;
 }
 
-vector<Field* >* chessField::initializeHorizontalRow(int row) {
-    switch(row%2){
-    case 0:
-        return emptyHorizontalRowStartsWithWhite();
-    case 1:
-        return emptyHorizontalRowStartsWithBlack();
-        break;
-    default:
-        break;
-    }
-    return emptyHorizontalRowStartsWithBlack();
+Field* chessField::erzeugeFeld(Position* position, SchachBrettAusgabe* logikSchach) {
+	pair<Figuren,Farbe> feldBeschreibung = logikSchach->getFigurAnPosition(*position);
+	Farbe feldFarbe = logikSchach->getFeldFarbe(position->getZeile(), position->getSpalte());
+	return new Field(feldFarbe, *position, feldBeschreibung.first);
 }
 
-vector<Field* >* chessField::emptyHorizontalRowStartsWithBlack() {
-    vector<Field* >* result = new vector<Field*>();
-    QHBoxLayout* horizontalLayout = new QHBoxLayout;
-    for(int i = 0; i < 8; i++) {
-        if (i%2==0) {
-            result->push_back(createFieldAndAddToLayout(horizontalLayout, SCHWARZ));
-        } else {
-            result->push_back(createFieldAndAddToLayout(horizontalLayout, WEISS));
-        }
-    }
-    verticalLayout->addLayout(horizontalLayout);
-    return result;
-}
 
-vector<Field* >* chessField::emptyHorizontalRowStartsWithWhite() {
-    vector<Field* >* result = new vector<Field*>();
-    QHBoxLayout* horizontalLayout = new QHBoxLayout;
-    for(int i = 0; i < 8; i++) {
-        if (i%2==0) {
-			result->push_back(createFieldAndAddToLayout(horizontalLayout, WEISS));
-        } else {
-            result->push_back(createFieldAndAddToLayout(horizontalLayout, SCHWARZ));
-        }
-    }
-    verticalLayout->addLayout(horizontalLayout);
-    return result;
-}
-
-Field* chessField::createFieldAndAddToLayout(QHBoxLayout* layout, Farbe fieldColor) {
-	Field* result = new Field(fieldColor);
-    layout->addWidget(result);
-    return result;
-}
 
 void chessField::startNewGame() {
 
@@ -65,7 +34,7 @@ void chessField::startNewGame() {
 void chessField::setFiguresOnTheChessfield(SchachBrettAusgabe* logikSchachbrett) {
 	for(unsigned row = 0; row < 8; row++) {
 		for(unsigned column = 0; column < 8; column++) {
-			chessFiedVector[row]->at(column)->changePicture(&logikSchachbrett->getFigurAnPosition(Position(column, row)));
+			//chessFiedVector[row]->at(column)->changePicture(&logikSchachbrett->getFigurAnPosition(Position(column, row)));
 		}
 	}
 }

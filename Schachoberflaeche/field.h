@@ -6,6 +6,9 @@
 #include <QLabel>
 #include "../../SchachLogik/SchachLogik/src/Figur.h"
 
+//debug
+#include <fstream>
+
 class QDragEnterEvent;
  class QDropEvent;
 
@@ -13,12 +16,14 @@ class Field: public QFrame
 {
     Q_OBJECT
 private:
+	fstream f;
     QLabel* figure;
+	Position* positionDesFeldes;
 	QPixmap* figureToPicture(pair<Figuren, Farbe>* figur);
 
 public:
 
-    Field(const Farbe backgroundColor, const QPixmap* image = 0, QWidget *parent = 0);
+	Field(Farbe backgroundColor, Position positionDesFeldes, Figuren figur, QWidget *parent = 0);
     ~Field();
 	void changePicture(pair<Figuren, Farbe>* figur);
 

@@ -14,16 +14,15 @@ class chessField : public QObject
 {
 	Q_OBJECT
 private:
-    vector<vector<Field*>* > chessFiedVector;
+    vector<Field*>* schachFelder;
     QVBoxLayout* verticalLayout;
+	Field* feld;
 
-    vector<Field* >* initializeHorizontalRow(int row);
-    vector<Field* >* emptyHorizontalRowStartsWithBlack();
-    vector<Field* >* emptyHorizontalRowStartsWithWhite();
-    Field* createFieldAndAddToLayout(QHBoxLayout* layout, Farbe fieldColor);
+	Field* erzeugeFeld(Position* position, SchachBrettAusgabe* logikSchach);
+
 public:
-    chessField();
-    QVBoxLayout* initializeChessField();
+	chessField();
+    QVBoxLayout* initializeChessField(SchachBrettAusgabe* logikSchach);
 	void setFiguresOnTheChessfield(SchachBrettAusgabe* logikSchachbrett);
 
 public slots:

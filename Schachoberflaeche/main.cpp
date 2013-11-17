@@ -12,8 +12,15 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     QWidget mainWidget;
 
+
+	//Schachlogik erstellen und Figuren anzeigen
+	SchachLogik* logik = new SchachLogik();
+	
+	SchachBrettAusgabe* schachBrettLogik = logik->getSpielfeld();
+
+
     chessField* chess = new chessField;
-    QVBoxLayout* verticalLayout = chess->initializeChessField();
+	QVBoxLayout* verticalLayout = chess->initializeChessField(schachBrettLogik);
 	
 	//buttons erstellen und zu layout hinzufügen
 	QPushButton* button = new QPushButton;
@@ -38,13 +45,7 @@ int main(int argc, char *argv[])
 
 
 
-	//Schachlogik erstellen und Figuren anzeigen
-	SchachLogik* logik = new SchachLogik();
 	
-	logik->starteSpiel();
-	
-	SchachBrettAusgabe* schachBrettLogik = logik->getSpielfeld();
-	chess->setFiguresOnTheChessfield(schachBrettLogik);
 
 
 

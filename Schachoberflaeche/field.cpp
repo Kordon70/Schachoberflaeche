@@ -1,7 +1,7 @@
 #include "field.h"
 #include <QtGui>
 
-Field::Field(const Farbe backgroundColor, const QPixmap* image, QWidget *parent)
+Field::Field(Farbe backgroundColor, Position positionDesFeldes, Figuren firgur, QWidget *parent)
     : QFrame(parent)
 {
     setMinimumSize(100,100);
@@ -12,9 +12,12 @@ Field::Field(const Farbe backgroundColor, const QPixmap* image, QWidget *parent)
         this->setStyleSheet("background-color:grey;");
     } else if (backgroundColor == SCHWARZ) {
         this->setStyleSheet("background-color:white;");
-    }
+    } else {
+		this->setStyleSheet("background-color:blue;");
+	}
 
     figure = new QLabel(this);
+	f.open("debug.txt",ios::out);
 }
 
 void Field::changePicture(pair<Figuren, Farbe>* figur) {
@@ -59,7 +62,8 @@ QPixmap* Field::figureToPicture(pair<Figuren, Farbe>* figur) {
 
 void Field::dragEnterEvent(QDragEnterEvent *event)
  {
-     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+	 f << "dragEnterEvent" << std::endl;
+	 if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
              event->accept();
@@ -73,6 +77,7 @@ void Field::dragEnterEvent(QDragEnterEvent *event)
 
  void Field::dragMoveEvent(QDragMoveEvent *event)
  {
+	 f << "dragMoveEvent" << std::endl;
      if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
@@ -87,6 +92,7 @@ void Field::dragEnterEvent(QDragEnterEvent *event)
 
  void Field::dropEvent(QDropEvent *event)
  {
+	 f << ("dropEvent") << std::endl;
      if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
          QDataStream dataStream(&itemData, QIODevice::ReadOnly);
@@ -114,6 +120,7 @@ void Field::dragEnterEvent(QDragEnterEvent *event)
 
  void Field::mousePressEvent(QMouseEvent *event)
  {
+	 f << ("mousePressEvent") << std::endl;
      QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
      if (!child)
          return;
@@ -151,5 +158,5 @@ void Field::dragEnterEvent(QDragEnterEvent *event)
 
 Field::~Field()
 {
-
+	f.close();
 }
