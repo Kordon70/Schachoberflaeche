@@ -17,15 +17,15 @@ class Field: public QFrame
     Q_OBJECT
 private:
 	fstream f;
-    QLabel* figure;
+    QLabel* bild;
 	Position* positionDesFeldes;
 	QPixmap* figureToPicture(pair<Figuren, Farbe>* figur);
 
 public:
 
-	Field(Farbe backgroundColor, Position positionDesFeldes, Figuren figur, QWidget *parent = 0);
+	Field(Farbe backgroundColor, Position positionDesFeldes, pair<Figuren, Farbe> figur, QWidget *parent = 0);
     ~Field();
-	void changePicture(pair<Figuren, Farbe>* figur);
+	void aendereBild(pair<Figuren, Farbe>* figur);
 
 protected:
 	void dragEnterEvent(QDragEnterEvent *event);

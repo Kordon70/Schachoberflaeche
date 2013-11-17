@@ -22,7 +22,7 @@ QVBoxLayout* chessField::initializeChessField(SchachBrettAusgabe* logikSchach) {
 Field* chessField::erzeugeFeld(Position* position, SchachBrettAusgabe* logikSchach) {
 	pair<Figuren,Farbe> feldBeschreibung = logikSchach->getFigurAnPosition(*position);
 	Farbe feldFarbe = logikSchach->getFeldFarbe(position->getZeile(), position->getSpalte());
-	return new Field(feldFarbe, *position, feldBeschreibung.first);
+	return new Field(feldFarbe, *position, feldBeschreibung);
 }
 
 

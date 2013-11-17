@@ -1,63 +1,64 @@
 #include "field.h"
 #include <QtGui>
 
-Field::Field(Farbe backgroundColor, Position positionDesFeldes, Figuren firgur, QWidget *parent)
+Field::Field(Farbe backgroundColor, Position positionDesFeldes, pair<Figuren, Farbe> figur, QWidget *parent)
     : QFrame(parent)
 {
+	positionDesFeldes = positionDesFeldes;
     setMinimumSize(100,100);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
     this->setGeometry(0,0,300,100);
     if (backgroundColor == WEISS) {
-        this->setStyleSheet("background-color:grey;");
-    } else if (backgroundColor == SCHWARZ) {
         this->setStyleSheet("background-color:white;");
-    } else {
-		this->setStyleSheet("background-color:blue;");
+    } else if (backgroundColor == SCHWARZ) {
+        this->setStyleSheet("background-color:grey;");
 	}
 
-    figure = new QLabel(this);
+    bild = new QLabel(this);
+	aendereBild(&figur);
+
 	f.open("debug.txt",ios::out);
 }
 
-void Field::changePicture(pair<Figuren, Farbe>* figur) {
-	const QPixmap* bild = figureToPicture(figur);
-	figure->setPixmap(*bild);
-	figure->show();
-	figure->setAttribute(Qt::WA_DeleteOnClose);
+void Field::aendereBild(pair<Figuren, Farbe>* figur) {
+	const QPixmap* pixmapBild  = figureToPicture(figur);
+	bild->setPixmap(*pixmapBild);
+	bild->show();
+	bild->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 QPixmap* Field::figureToPicture(pair<Figuren, Farbe>* figur) {
-	QString bild;
+	QString bildName;
 	switch (figur->first)
 	{
 	case KOENIG:
-		bild = ":/images/Koenig-";
+		bildName = ":/images/Koenig-";
 		break;
 	case DAME:
-		bild = ":/images/Dame-";
+		bildName = ":/images/Dame-";
 		break;
 	case BAUER:
-		bild = ":/images/Bauer-";
+		bildName = ":/images/Bauer-";
 		break;
 	case TURM:
-		bild = ":/images/Turm-";
+		bildName = ":/images/Turm-";
 		break;
 	case LAEUFER:
-		bild = ":/images/Laeufer-";
+		bildName = ":/images/Laeufer-";
 		break;
 	case SPRINGER:
-		bild = ":/images/Springer-";
+		bildName = ":/images/Springer-";
 		break;
 	default:
 		return new QPixmap(":/images/empty.png");
 	}
 	if(figur->second==SCHWARZ) {
-		bild += "schwarz.png";
+		bildName += "schwarz.png";
 	} else {
-		bild += "weis.png";
+		bildName += "weis.png";
 	}
-	return new QPixmap(bild);
+	return new QPixmap(bildName);
 }
 
 void Field::dragEnterEvent(QDragEnterEvent *event)
