@@ -1,11 +1,11 @@
 #include <QPushButton>
-#include "chessfield.h"
+#include "SchachbrettAnzeige.h"
 #include <QApplication>
 #include <QHBoxLayout>
 #include "newgamebutton.h"
 #include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
-#include "../logicChessField.h"
 #include "humanplayer.h"
+#include "Zug.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,8 +18,9 @@ int main(int argc, char *argv[])
 	
 	SchachBrettAusgabe* schachBrettLogik = logik->getSpielfeld();
 
+	Zug* zugDurchfruehren = new Zug(logik);
 
-    chessField* chess = new chessField;
+	SchachbrettAnzeige* chess = new SchachbrettAnzeige();
 	QVBoxLayout* verticalLayout = chess->initializeChessField(schachBrettLogik);
 	
 	//buttons erstellen und zu layout hinzufügen

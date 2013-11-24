@@ -57,12 +57,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Schachoberflaeche\chessfield.cpp">
-      <Filter>Source Dateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Schachoberflaeche\field.cpp">
-      <Filter>Source Dateien</Filter>
-    </ClCompile>
     <ClCompile Include="Schachoberflaeche\humanplayer.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
@@ -93,20 +87,26 @@
     <ClCompile Include="GeneratedFiles\Release\moc_chessfield.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="logicChessField.cpp">
+    <ClCompile Include="Schachoberflaeche\Zug.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Schachoberflaeche\Schachfeld.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Schachoberflaeche\SchachbrettAnzeige.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Schachoberflaeche\Oberflaeche.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Schachoberflaeche\field.h">
-      <Filter>Header Dateien</Filter>
-    </CustomBuild>
     <ClInclude Include="Schachoberflaeche\humanplayer.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
-    <CustomBuild Include="Schachoberflaeche\chessfield.h">
+    <ClInclude Include="Schachoberflaeche\Oberflaeche.h">
       <Filter>Header Dateien</Filter>
-    </CustomBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Schachoberflaeche\images\King-white_256x256_32.png">
@@ -123,9 +123,15 @@
     <CustomBuild Include="Schachoberflaeche\newgamebutton.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
+    <CustomBuild Include="Schachoberflaeche\Schachfeld.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Schachoberflaeche\SchachbrettAnzeige.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="logicChessField.h">
+    <ClInclude Include="Schachoberflaeche\Zug.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
   </ItemGroup>
