@@ -3,16 +3,26 @@
 
 Zug::Zug(SchachLogik* logik) {
 	this->logik = logik;
+	spielerAmZug = true;
+	myfile.open ("example.txt"); //löschen
 }
 
-void Zug::beginneZug(Position* startposition) {
-	this->startPosition = startPosition;
+void Zug::beginneZug(Position* startPosition) {
+	if(spielerAmZug) {
+		this->startPosition = startPosition;
+	}
 }
 
 void Zug::beendeZug(Position* zielPosition) {
-	logik->ziehen(startPosition, zielPosition);
+	if(spielerAmZug && startPosition != 0) {
+		myfile << "Zugvon " << startPosition << "nach" << zielPosition;  //löschen
+		logik->ziehen(startPosition, zielPosition);
+		startPosition = 0;
+		spielerAmZug = false;
+	}
 }
 
 Zug::~Zug(void)
 {
+	 myfile.close(); //löschen
 }

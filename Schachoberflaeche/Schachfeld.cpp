@@ -65,6 +65,7 @@ QPixmap* Schachfeld::figureToPicture() {
 
 void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
  {
+	 schachZug->beginneZug(positionDesFeldes);
 	 if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
@@ -106,6 +107,8 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
          newIcon->move(event->pos() - offset);
          newIcon->show();
          newIcon->setAttribute(Qt::WA_DeleteOnClose);
+		 
+		 schachZug->beendeZug(positionDesFeldes);
 
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
