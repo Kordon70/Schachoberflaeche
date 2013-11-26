@@ -1,10 +1,14 @@
 #ifndef SCHACHFELD_H
 #define SCHACHFELD_H
 
-#include "../../SchachLogik/SchachLogik/src/Farbe.h"
-#include "../../SchachLogik/SchachLogik/src/Figur.h"
 #include <QFrame>
 #include <QLabel>
+
+#include "../../SchachLogik/SchachLogik/src/Farbe.h"
+#include "../../SchachLogik/SchachLogik/src/Figur.h"
+#include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
+
+#include "Zug.h"
 
 class QDragEnterEvent;
  class QDropEvent;
@@ -13,15 +17,17 @@ class QDragEnterEvent;
 {
     Q_OBJECT
 private:
+	SchachLogik* logik;
+	Zug* schachZug;
     QLabel* bild;
 	Position* positionDesFeldes;
-	QPixmap* figureToPicture(pair<Figuren, Farbe>* figur);
+	QPixmap* figureToPicture();
+	pair<Figuren, Farbe> figur;
 
 public:
-
-	Schachfeld(Farbe backgroundColor, Position positionDesFeldes, pair<Figuren, Farbe> figur, QWidget *parent = 0);
+	Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent = 0);
     ~Schachfeld();
-	void aendereBild(pair<Figuren, Farbe>* figur);
+	void aendereBild();
 
 protected:
 	void dragEnterEvent(QDragEnterEvent *event);

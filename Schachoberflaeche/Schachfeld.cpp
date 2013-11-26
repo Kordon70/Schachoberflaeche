@@ -1,34 +1,38 @@
 #include "Schachfeld.h"
 #include <QtGui>
 
-Schachfeld::Schachfeld(Farbe backgroundColor, Position positionDesFeldes, pair<Figuren, Farbe> figur, QWidget *parent)
+Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent)
     : QFrame(parent)
 {
-	positionDesFeldes = positionDesFeldes;
+	this->logik = logik;
+	this->schachZug = schachZug;
+	this->positionDesFeldes = positionDesFeldes;
+	this->figur = this->logik->getSpielfeld()->getFigurAnPosition(*positionDesFeldes);
     setMinimumSize(100,100);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
     this->setGeometry(0,0,300,100);
-    if (backgroundColor == WEISS) {
+	Farbe feldFarbe = logik->getSpielfeld()->getFeldFarbe(positionDesFeldes->getZeile(), positionDesFeldes->getSpalte());
+    if (feldFarbe == WEISS) {
         this->setStyleSheet("background-color:white;");
-    } else if (backgroundColor == SCHWARZ) {
+    } else if (feldFarbe == SCHWARZ) {
         this->setStyleSheet("background-color:grey;");
 	}
 
     bild = new QLabel(this);
-	aendereBild(&figur);
+	aendereBild();
 }
 
-void Schachfeld::aendereBild(pair<Figuren, Farbe>* figur) {
-	const QPixmap* pixmapBild  = figureToPicture(figur);
+void Schachfeld::aendereBild() {
+	const QPixmap* pixmapBild  = figureToPicture();
 	bild->setPixmap(*pixmapBild);
 	bild->show();
 	bild->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-QPixmap* Schachfeld::figureToPicture(pair<Figuren, Farbe>* figur) {
+QPixmap* Schachfeld::figureToPicture() {
 	QString bildName;
-	switch (figur->first)
+	switch (figur.first)
 	{
 	case KOENIG:
 		bildName = ":/images/Koenig-";
@@ -51,7 +55,7 @@ QPixmap* Schachfeld::figureToPicture(pair<Figuren, Farbe>* figur) {
 	default:
 		return new QPixmap(":/images/empty.png");
 	}
-	if(figur->second==SCHWARZ) {
+	if(figur.second==SCHWARZ) {
 		bildName += "schwarz.png";
 	} else {
 		bildName += "weis.png";
