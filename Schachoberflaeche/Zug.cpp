@@ -3,8 +3,12 @@
 
 Zug::Zug(SchachLogik* logik) {
 	this->logik = logik;
-	spielerAmZug = true;
+	spielerAmZug = true; //ToDo auf false setzten
 	myfile.open ("example.txt"); //löschen
+}
+
+void Zug::zugBeginnen() {
+	spielerAmZug = true;
 }
 
 void Zug::beginneZug(Position* startPosition) {

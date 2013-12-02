@@ -161,14 +161,15 @@
     </ClCompile>
     <ClCompile Include="Schachoberflaeche\SchachbrettAnzeige.cpp" />
     <ClCompile Include="Schachoberflaeche\Schachfeld.cpp" />
-    <ClCompile Include="Schachoberflaeche\humanplayer.cpp" />
     <ClCompile Include="Schachoberflaeche\main.cpp" />
     <ClCompile Include="Schachoberflaeche\newgamebutton.cpp" />
     <ClCompile Include="Schachoberflaeche\Oberflaeche.cpp" />
+    <ClCompile Include="Schachoberflaeche\SpielerMensch.cpp" />
     <ClCompile Include="Schachoberflaeche\Zug.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Schachoberflaeche\Oberflaeche.h" />
+    <ClInclude Include="Schachoberflaeche\SpielerMensch.h" />
     <ClInclude Include="Schachoberflaeche\Zug.h" />
     <CustomBuild Include="Schachoberflaeche\SchachbrettAnzeige.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
@@ -200,7 +201,6 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
-    <ClInclude Include="Schachoberflaeche\humanplayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schachoberflaeche\images\King-white_256x256_32.png">

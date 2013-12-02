@@ -57,17 +57,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Schachoberflaeche\humanplayer.cpp">
-      <Filter>Source Dateien</Filter>
-    </ClCompile>
     <ClCompile Include="Schachoberflaeche\main.cpp">
       <Filter>Source Dateien</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_field.cpp">
-      <Filter>Generierte Dateien\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_field.cpp">
-      <Filter>Generierte Dateien\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_Schachfiguren.cpp">
       <Filter>Generierte Dateien</Filter>
@@ -81,12 +72,6 @@
     <ClCompile Include="Schachoberflaeche\newgamebutton.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_chessfield.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_chessfield.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="Schachoberflaeche\Zug.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
@@ -99,12 +84,27 @@
     <ClCompile Include="Schachoberflaeche\Oberflaeche.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SchachbrettAnzeige.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Schachfeld.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SchachbrettAnzeige.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Schachfeld.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Schachoberflaeche\SpielerMensch.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Schachoberflaeche\humanplayer.h">
+    <ClInclude Include="Schachoberflaeche\Oberflaeche.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
-    <ClInclude Include="Schachoberflaeche\Oberflaeche.h">
+    <ClInclude Include="Schachoberflaeche\SpielerMensch.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
   </ItemGroup>

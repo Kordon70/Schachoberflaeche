@@ -14,6 +14,7 @@ private:
 	bool spielerAmZug;
 	ofstream myfile; //löschen
 public:
+	void zugBeginnen();
 	Zug(SchachLogik* logik);
 	void beginneZug(Position* startPosition);
 	void beendeZug(Position* zielPosition);
