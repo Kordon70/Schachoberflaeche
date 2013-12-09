@@ -22,7 +22,6 @@ private:
     QLabel* bild;
 	Position* positionDesFeldes;
 	QPixmap* figureToPicture();
-	pair<Figuren, Farbe> figur;
 
 public:
 	Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent = 0);

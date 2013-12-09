@@ -4,11 +4,12 @@
 Oberflaeche::Oberflaeche(SchachLogik* logik, Zug* schachzug)
 {
 	this->logik = logik;
-	this->zugDurchfuehren = schachzug;
+	this->schachZug = schachzug;
+	this->schachZug->setzteOberflaeche(this);
 }
 
 void Oberflaeche::oberflaecheErstellen() {
-	chess = new SchachbrettAnzeige(logik, zugDurchfuehren);
+	chess = new SchachbrettAnzeige(logik, schachZug);
 	QVBoxLayout* verticalLayout = chess->initializeChessField();
 	//buttons erstellen und zu layout hinzufügen
 	QPushButton* button = new QPushButton;
@@ -30,6 +31,10 @@ void Oberflaeche::oberflaecheErstellen() {
 
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();
+}
+
+void Oberflaeche::oberflaecheAktualisieren() {
+	chess->aktualisiereSchachfeld();
 }
 
 Oberflaeche::~Oberflaeche(void)

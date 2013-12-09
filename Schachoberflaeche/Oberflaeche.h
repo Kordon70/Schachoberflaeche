@@ -4,21 +4,23 @@
 #include <QPushButton>
 
 #include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
+#include "OberflaecheInterface.h"
 #include "Zug.h"
 #include "SchachbrettAnzeige.h"
 #include "newgamebutton.h"
 
-class Oberflaeche
+class Oberflaeche : OberflaecheInterface
 {
 private:
     QWidget mainWidget;
 	SchachLogik* logik;
-	Zug* zugDurchfuehren;
+	Zug* schachZug;
 	SchachbrettAnzeige* chess;
 
 public:
 	Oberflaeche(SchachLogik* logik, Zug* schachzug);
 	void oberflaecheErstellen();
+	void oberflaecheAktualisieren();
 	~Oberflaeche(void);
 };
 

@@ -7,7 +7,6 @@ Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDes
 	this->logik = logik;
 	this->schachZug = schachZug;
 	this->positionDesFeldes = positionDesFeldes;
-	this->figur = this->logik->getSpielfeld()->getFigurAnPosition(*positionDesFeldes);
     setMinimumSize(100,100);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
@@ -32,6 +31,7 @@ void Schachfeld::aendereBild() {
 
 QPixmap* Schachfeld::figureToPicture() {
 	QString bildName;
+	pair<Figuren, Farbe> figur = logik->getSpielfeld()->getFigurAnPosition(*positionDesFeldes);
 	switch (figur.first)
 	{
 	case KOENIG:

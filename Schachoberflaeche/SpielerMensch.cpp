@@ -5,7 +5,6 @@ SpielerMensch::SpielerMensch(void){
 }
 
 void SpielerMensch::duBistDran(){
-	//SchachbrettAnzeige aktuallisiern
 	schachZug->zugBeginnen();
 }
 

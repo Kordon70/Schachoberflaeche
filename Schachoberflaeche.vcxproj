@@ -168,6 +168,7 @@
     <ClCompile Include="Schachoberflaeche\Zug.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="OberflaecheInterface.h" />
     <ClInclude Include="Schachoberflaeche\Oberflaeche.h" />
     <ClInclude Include="Schachoberflaeche\SpielerMensch.h" />
     <ClInclude Include="Schachoberflaeche\Zug.h" />

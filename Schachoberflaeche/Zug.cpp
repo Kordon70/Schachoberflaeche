@@ -4,7 +4,6 @@
 Zug::Zug(SchachLogik* logik) {
 	this->logik = logik;
 	spielerAmZug = true; //ToDo auf false setzten
-	myfile.open ("example.txt"); //löschen
 }
 
 void Zug::zugBeginnen() {
@@ -19,14 +18,17 @@ void Zug::beginneZug(Position* startPosition) {
 
 void Zug::beendeZug(Position* zielPosition) {
 	if(spielerAmZug && startPosition != 0) {
-		myfile << "Zugvon " << startPosition << "nach" << zielPosition;  //löschen
 		logik->ziehen(startPosition, zielPosition);
+		oberflaeche->oberflaecheAktualisieren();
 		startPosition = 0;
 		spielerAmZug = false;
 	}
 }
 
+void Zug::setzteOberflaeche(OberflaecheInterface* oberflaeche) {
+	this->oberflaeche=oberflaeche;
+}
+
 Zug::~Zug(void)
 {
-	 myfile.close(); //löschen
 }

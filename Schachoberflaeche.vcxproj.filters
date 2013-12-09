@@ -107,6 +107,9 @@
     <ClInclude Include="Schachoberflaeche\SpielerMensch.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
+    <ClInclude Include="OberflaecheInterface.h">
+      <Filter>Header Dateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Schachoberflaeche\images\King-white_256x256_32.png">

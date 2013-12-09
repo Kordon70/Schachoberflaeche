@@ -16,7 +16,7 @@ class SchachbrettAnzeige : public QObject
 {
 	Q_OBJECT
 private:
-    vector<Schachfeld*>* schachFelder;
+    vector<Schachfeld*> schachFelder;
 	Schachfeld* feld;
 	SchachLogik* logik;
 	Zug* schachZug;
@@ -26,6 +26,7 @@ private:
 public:
 	SchachbrettAnzeige(SchachLogik* logik, Zug* schachZug);
     QVBoxLayout* initializeChessField();
+	void aktualisiereSchachfeld();
 	//void setFiguresOnTheChessfield(SchachBrettAusgabe* logikSchachbrett);
 
 public slots:

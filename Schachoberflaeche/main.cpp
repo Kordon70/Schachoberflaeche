@@ -1,7 +1,6 @@
 
 #include <QApplication>
 #include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
-#include "humanplayer.h"
 #include "Zug.h"
 #include "Oberflaeche.h"
 
