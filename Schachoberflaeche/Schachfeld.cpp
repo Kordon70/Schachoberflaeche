@@ -4,6 +4,8 @@
 Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent)
     : QFrame(parent)
 {
+	
+
 	this->logik = logik;
 	this->schachZug = schachZug;
 	this->positionDesFeldes = positionDesFeldes;
@@ -22,8 +24,13 @@ Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDes
 	aendereBild();
 }
 
+void Schachfeld::output(fstream* f) {
+	this->f = f;
+}
+
 void Schachfeld::aendereBild() {
-	const QPixmap* pixmapBild  = figureToPicture();
+	bild = new QLabel(this);
+	QPixmap* pixmapBild  = figureToPicture();
 	bild->setPixmap(*pixmapBild);
 	bild->show();
 	bild->setAttribute(Qt::WA_DeleteOnClose);
@@ -53,7 +60,8 @@ QPixmap* Schachfeld::figureToPicture() {
 		bildName = ":/images/Springer-";
 		break;
 	default:
-		return new QPixmap(":/images/empty.png");
+		//return new QPixmap(":/images/empty.png");
+		return new QPixmap(":/images/red.png");
 	}
 	if(figur.second==SCHWARZ) {
 		bildName += "schwarz.png";
@@ -65,7 +73,6 @@ QPixmap* Schachfeld::figureToPicture() {
 
 void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
  {
-	 schachZug->beginneZug(positionDesFeldes);
 	 if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
@@ -80,6 +87,7 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
 
  void Schachfeld::dragMoveEvent(QDragMoveEvent *event)
  {
+	 schachZug->beginneZug(positionDesFeldes);
      if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
@@ -108,8 +116,6 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
          newIcon->show();
          newIcon->setAttribute(Qt::WA_DeleteOnClose);
 		 
-		 schachZug->beendeZug(positionDesFeldes);
-
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
              event->accept();
@@ -119,6 +125,8 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
      } else {
          event->ignore();
      }
+
+	 schachZug->beendeZug(positionDesFeldes);
  }
 
  void Schachfeld::mousePressEvent(QMouseEvent *event)
@@ -160,4 +168,5 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
 
 Schachfeld::~Schachfeld()
 {
+	// f->close(); //löschen
 }

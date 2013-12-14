@@ -4,6 +4,7 @@
 Zug::Zug(SchachLogik* logik) {
 	this->logik = logik;
 	spielerAmZug = true; //ToDo auf false setzten
+	startPosition = new Position(-1,-1);
 }
 
 void Zug::zugBeginnen() {
@@ -11,16 +12,16 @@ void Zug::zugBeginnen() {
 }
 
 void Zug::beginneZug(Position* startPosition) {
-	if(spielerAmZug) {
+	if(spielerAmZug && !this->startPosition->istPositionGueltig()) {
 		this->startPosition = startPosition;
 	}
 }
 
 void Zug::beendeZug(Position* zielPosition) {
-	if(spielerAmZug && startPosition != 0) {
+	if(spielerAmZug && startPosition->istPositionGueltig()) {
 		logik->ziehen(startPosition, zielPosition);
 		oberflaeche->oberflaecheAktualisieren();
-		startPosition = 0;
+		startPosition = new Position(-1,-1);
 		spielerAmZug = false;
 	}
 }

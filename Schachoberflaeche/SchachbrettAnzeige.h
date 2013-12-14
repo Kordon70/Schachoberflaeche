@@ -6,7 +6,6 @@
 
 #include <vector>
 
-//#include <../../SchachLogik/SchachLogik/src/Farbe.h>
 #include "Schachfeld.h"
 #include "Zug.h"
 
@@ -27,7 +26,6 @@ public:
 	SchachbrettAnzeige(SchachLogik* logik, Zug* schachZug);
     QVBoxLayout* initializeChessField();
 	void aktualisiereSchachfeld();
-	//void setFiguresOnTheChessfield(SchachBrettAusgabe* logikSchachbrett);
 
 public slots:
 	void startNewGame();

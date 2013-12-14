@@ -1,6 +1,10 @@
 #ifndef SCHACHFELD_H
 #define SCHACHFELD_H
 
+
+#include <fstream>	//löschen
+using namespace std; //löschen
+
 #include <QFrame>
 #include <QLabel>
 
@@ -17,6 +21,11 @@ class QDragEnterEvent;
 {
     Q_OBJECT
 private:
+
+
+	fstream* f; //löschen
+
+
 	SchachLogik* logik;
 	Zug* schachZug;
     QLabel* bild;
@@ -26,6 +35,7 @@ private:
 public:
 	Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent = 0);
     ~Schachfeld();
+	void output(fstream* f);
 	void aendereBild();
 
 protected:
