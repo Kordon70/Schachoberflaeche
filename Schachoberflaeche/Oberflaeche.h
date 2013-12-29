@@ -8,6 +8,8 @@
 #include "Zug.h"
 #include "SchachbrettAnzeige.h"
 #include "newgamebutton.h"
+#include "SpielerMensch.h"
+#include "../../SchachLogik/SchachLogik/src/SpielerBenachrichtigung.h"
 
 class Oberflaeche : OberflaecheInterface
 {
@@ -21,6 +23,9 @@ public:
 	Oberflaeche(SchachLogik* logik, Zug* schachzug);
 	void oberflaecheErstellen();
 	void oberflaecheAktualisieren();
+
+	void spielMitZweiSpielernStarten();
+
 	~Oberflaeche(void);
 };
 

@@ -13,7 +13,7 @@ Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDes
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
     this->setGeometry(0,0,300,100);
-	Farbe feldFarbe = logik->getSpielfeld()->getFeldFarbe(positionDesFeldes->getZeile(), positionDesFeldes->getSpalte());
+	Farbe feldFarbe = logik->getSpielfeld().getFeldFarbe(positionDesFeldes->getZeile(), positionDesFeldes->getSpalte());
     if (feldFarbe == WEISS) {
         this->setStyleSheet("background-color:white;");
     } else if (feldFarbe == SCHWARZ) {
@@ -38,7 +38,7 @@ void Schachfeld::aendereBild() {
 
 QPixmap* Schachfeld::figureToPicture() {
 	QString bildName;
-	pair<Figuren, Farbe> figur = logik->getSpielfeld()->getFigurAnPosition(*positionDesFeldes);
+	pair<Figuren, Farbe> figur = logik->getSpielfeld().getFigurAnPosition(*positionDesFeldes);
 	switch (figur.first)
 	{
 	case KOENIG:

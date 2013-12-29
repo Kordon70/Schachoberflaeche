@@ -3,7 +3,7 @@
 #include "zug.h"
 #include "../../SchachLogik/SchachLogik/src/SpielerBenachrichtigung.h"
 
-class SpielerMensch : SpielerBenachrichtigung
+class SpielerMensch : public SpielerBenachrichtigung
 {
 
 private:
@@ -12,7 +12,7 @@ private:
 public:
 	Figuren tauscheBauern();
 	void duBistDran();
-	SpielerMensch();
+	SpielerMensch(Zug* schachZug);
 	~SpielerMensch();
 };
 

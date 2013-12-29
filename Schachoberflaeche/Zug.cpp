@@ -3,7 +3,7 @@
 
 Zug::Zug(SchachLogik* logik) {
 	this->logik = logik;
-	spielerAmZug = true; //ToDo auf false setzten
+	spielerAmZug = false; //ToDo auf false setzten
 	startPosition = new Position(-1,-1);
 }
 
@@ -23,6 +23,7 @@ void Zug::beendeZug(Position* zielPosition) {
 		oberflaeche->oberflaecheAktualisieren();
 		startPosition = new Position(-1,-1);
 		spielerAmZug = false;
+		logik->zugAbschliessen();
 	}
 }
 

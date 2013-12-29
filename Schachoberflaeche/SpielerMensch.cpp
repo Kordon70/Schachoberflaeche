@@ -1,7 +1,8 @@
 #include "SpielerMensch.h"
 
 
-SpielerMensch::SpielerMensch(void){
+SpielerMensch::SpielerMensch(Zug* schachZug){
+	this->schachZug = schachZug;
 }
 
 void SpielerMensch::duBistDran(){

@@ -13,7 +13,7 @@ void Oberflaeche::oberflaecheErstellen() {
 	QVBoxLayout* verticalLayout = chess->initializeChessField();
 	//buttons erstellen und zu layout hinzufügen
 	QPushButton* button = new QPushButton;
-    button->setText("Neues Spiel");
+    button->setText("Neue Partie");
 	QPushButton* buttonAnzeigen = new QPushButton;
     buttonAnzeigen->setText("Anzeigen");
 
@@ -31,10 +31,20 @@ void Oberflaeche::oberflaecheErstellen() {
 
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();
+
+	spielMitZweiSpielernStarten();
 }
 
 void Oberflaeche::oberflaecheAktualisieren() {
 	chess->aktualisiereSchachfeld();
+}
+
+void Oberflaeche::spielMitZweiSpielernStarten() {
+	SpielerBenachrichtigung* spielerEins = new SpielerMensch(schachZug);
+	SpielerBenachrichtigung* spielerZwei = new SpielerMensch(schachZug);
+	logik->registriereSpieler(WEISS,spielerEins);
+	logik->registriereSpieler(SCHWARZ,spielerZwei);
+	logik->starteSpiel();
 }
 
 Oberflaeche::~Oberflaeche(void)
