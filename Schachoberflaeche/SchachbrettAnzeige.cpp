@@ -8,7 +8,6 @@ SchachbrettAnzeige::SchachbrettAnzeige(SchachLogik* logik, Zug* schachZug) {
 
 QVBoxLayout* SchachbrettAnzeige::initializeChessField() {
 	QVBoxLayout* verticalLayout = new QVBoxLayout;
-	//f.open("test.dat", ios::out);
     for (unsigned int zeile = 0; zeile < 8; zeile++) {
 		QHBoxLayout* horizontalLayout = new QHBoxLayout();
 		for(unsigned int spalte = 0; spalte < 8; spalte++) {
@@ -32,5 +31,5 @@ void SchachbrettAnzeige::aktualisiereSchachfeld() {
 }
 
 void SchachbrettAnzeige::startNewGame() {
-
+	aktualisiereSchachfeld();
 }

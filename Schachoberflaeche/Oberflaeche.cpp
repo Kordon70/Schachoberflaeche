@@ -12,13 +12,13 @@ void Oberflaeche::oberflaecheErstellen() {
 	chess = new SchachbrettAnzeige(logik, schachZug);
 	QVBoxLayout* verticalLayout = chess->initializeChessField();
 	//buttons erstellen und zu layout hinzufügen
-	QPushButton* button = new QPushButton;
-    button->setText("Neue Partie");
+	QPushButton* buttonNeuePartie = new QPushButton;
+    buttonNeuePartie->setText("Neue Partie");
 	QPushButton* buttonAnzeigen = new QPushButton;
     buttonAnzeigen->setText("Anzeigen");
 
 	QHBoxLayout* horizonatalButtonLayout = new QHBoxLayout;
-	horizonatalButtonLayout->addWidget(button);
+	horizonatalButtonLayout->addWidget(buttonNeuePartie);
 	horizonatalButtonLayout->addWidget(buttonAnzeigen);
 	
 	verticalLayout->addLayout(horizonatalButtonLayout);
@@ -26,7 +26,7 @@ void Oberflaeche::oberflaecheErstellen() {
 
 	//events verlinken
 	newGameButton* ngb = new newGameButton;
-    QWidget::connect(button,SIGNAL(clicked()),ngb, SLOT(openNewGameWindow()));
+    QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),ngb, SLOT(openNewGameWindow()));
 	QWidget::connect(buttonAnzeigen,SIGNAL(clicked()),chess, SLOT(startNewGame()));
 
 	mainWidget.setWindowTitle(QObject::tr("Schach"));

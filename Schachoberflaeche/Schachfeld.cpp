@@ -19,13 +19,6 @@ Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDes
     } else if (feldFarbe == SCHWARZ) {
         this->setStyleSheet("background-color:grey;");
 	}
-
-    bild = new QLabel(this);
-	aendereBild();
-}
-
-void Schachfeld::output(fstream* f) {
-	this->f = f;
 }
 
 void Schachfeld::aendereBild() {
