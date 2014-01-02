@@ -14,20 +14,22 @@ void Oberflaeche::oberflaecheErstellen() {
 	//buttons erstellen und zu layout hinzufügen
 	QPushButton* buttonNeuePartie = new QPushButton;
     buttonNeuePartie->setText("Neue Partie");
-	QPushButton* buttonAnzeigen = new QPushButton;
-    buttonAnzeigen->setText("Anzeigen");
+	QPushButton* buttonZugZurueck = new QPushButton;
+	buttonZugZurueck->setText("Zug zurück");
+	QPushButton* buttonEnde = new QPushButton;
+    buttonEnde->setText("Beenden");
 
 	QHBoxLayout* horizonatalButtonLayout = new QHBoxLayout;
 	horizonatalButtonLayout->addWidget(buttonNeuePartie);
-	horizonatalButtonLayout->addWidget(buttonAnzeigen);
+	horizonatalButtonLayout->addWidget(buttonZugZurueck);
 	
 	verticalLayout->addLayout(horizonatalButtonLayout);
 	mainWidget.setLayout(verticalLayout);
 
 	//events verlinken
-	newGameButton* neuePartieFenster = new newGameButton(logik, schachZug);
+	newGameButton* neuePartieFenster = new newGameButton(logik, schachZug, this);
     QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),neuePartieFenster, SLOT(openNewGameWindow()));
-	QWidget::connect(buttonAnzeigen,SIGNAL(clicked()),chess, SLOT(startNewGame()));
+	QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(startNewGame()));
 
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();

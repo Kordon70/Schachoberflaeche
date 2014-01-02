@@ -1,9 +1,10 @@
 #include "newgamebutton.h"
 
-newGameButton::newGameButton(SchachLogik* logik, Zug* schachZug, QObject *parent) :
+newGameButton::newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche, QObject *parent) :
     QObject(parent) {
 		this->schachZug = schachZug;
 		this->logik = logik;
+		this->oberlaeche = oberlaeche;
 }
 
 void newGameButton::openNewGameWindow() {
@@ -36,8 +37,10 @@ void newGameButton::startePartieMitZweiSpieler() {
 	logik->registriereSpieler(WEISS,spielerEins);
 	logik->registriereSpieler(SCHWARZ,spielerZwei);
 	logik->starteSpiel();
+	schlieseFenster();
+	oberlaeche->oberflaecheAktualisieren();
 }
 
 void newGameButton::schlieseFenster() {
-
+	neuePartie->close();
 }
