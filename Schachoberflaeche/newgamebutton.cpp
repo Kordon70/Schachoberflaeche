@@ -1,23 +1,43 @@
 #include "newgamebutton.h"
 
-newGameButton::newGameButton(QObject *parent) :
-    QObject(parent)
-{
+newGameButton::newGameButton(SchachLogik* logik, Zug* schachZug, QObject *parent) :
+    QObject(parent) {
+		this->schachZug = schachZug;
+		this->logik = logik;
 }
 
 void newGameButton::openNewGameWindow() {
-    playAgainstWho = new QWidget;
-    playAgainstWho->setWindowTitle(QObject::tr("Neues Spiel"));
+    neuePartie = new QWidget;
+    neuePartie->setWindowTitle(QObject::tr("Neues Spiel"));
 
     QVBoxLayout* layout = new QVBoxLayout;
 
-    QPushButton* playAgainstOtherPlayer = new QPushButton("Gegen anderen Spieler spielen");
-    QPushButton* playAgainstComputer = new QPushButton("Gegen den Computer spielen");
-    QPushButton* cancel = new QPushButton("cancel");
-    layout->addWidget(playAgainstOtherPlayer);
-    layout->addWidget(playAgainstComputer);
-    layout->addWidget(cancel);
+    QPushButton* einSpieler = new QPushButton("1 Spieler");
+	QWidget::connect(einSpieler,SIGNAL(clicked()), this, SLOT(startePartieGegenComputer()));
+    QPushButton* zweiSpieler = new QPushButton("2 Spieler");
+	QWidget::connect(zweiSpieler,SIGNAL(clicked()), this, SLOT(startePartieMitZweiSpieler()));
+    QPushButton* fensterSchliesen = new QPushButton("Abbrechen");
+	QWidget::connect(fensterSchliesen,SIGNAL(clicked()), this, SLOT(schlieseFenster()));
+    layout->addWidget(einSpieler);
+    layout->addWidget(zweiSpieler);
+	layout->addWidget(fensterSchliesen);
 
-    playAgainstWho->setLayout(layout);
-    playAgainstWho->show();
+    neuePartie->setLayout(layout);
+    neuePartie->show();
+}
+
+void newGameButton::startePartieGegenComputer() {
+	
+}
+
+void newGameButton::startePartieMitZweiSpieler() {
+	SpielerBenachrichtigung* spielerEins = new SpielerMensch(schachZug);
+	SpielerBenachrichtigung* spielerZwei = new SpielerMensch(schachZug);
+	logik->registriereSpieler(WEISS,spielerEins);
+	logik->registriereSpieler(SCHWARZ,spielerZwei);
+	logik->starteSpiel();
+}
+
+void newGameButton::schlieseFenster() {
+
 }

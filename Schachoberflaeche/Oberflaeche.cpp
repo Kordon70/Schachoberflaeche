@@ -25,26 +25,16 @@ void Oberflaeche::oberflaecheErstellen() {
 	mainWidget.setLayout(verticalLayout);
 
 	//events verlinken
-	newGameButton* ngb = new newGameButton;
-    QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),ngb, SLOT(openNewGameWindow()));
+	newGameButton* neuePartieFenster = new newGameButton(logik, schachZug);
+    QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),neuePartieFenster, SLOT(openNewGameWindow()));
 	QWidget::connect(buttonAnzeigen,SIGNAL(clicked()),chess, SLOT(startNewGame()));
 
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();
-
-	spielMitZweiSpielernStarten();
 }
 
 void Oberflaeche::oberflaecheAktualisieren() {
 	chess->aktualisiereSchachfeld();
-}
-
-void Oberflaeche::spielMitZweiSpielernStarten() {
-	SpielerBenachrichtigung* spielerEins = new SpielerMensch(schachZug);
-	SpielerBenachrichtigung* spielerZwei = new SpielerMensch(schachZug);
-	logik->registriereSpieler(WEISS,spielerEins);
-	logik->registriereSpieler(SCHWARZ,spielerZwei);
-	logik->starteSpiel();
 }
 
 Oberflaeche::~Oberflaeche(void)

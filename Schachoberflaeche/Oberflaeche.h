@@ -24,8 +24,6 @@ public:
 	void oberflaecheErstellen();
 	void oberflaecheAktualisieren();
 
-	void spielMitZweiSpielernStarten();
-
 	~Oberflaeche(void);
 };
 
