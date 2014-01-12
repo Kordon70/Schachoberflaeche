@@ -18,6 +18,7 @@ private:
 	SchachLogik* logik;
 	Zug* schachZug;
 	SchachbrettAnzeige* chess;
+	newGameButton* neuePartieFenster;
 
 public:
 	Oberflaeche(SchachLogik* logik, Zug* schachzug);

@@ -19,11 +19,10 @@ void Zug::beginneZug(Position* startPosition) {
 
 void Zug::beendeZug(Position* zielPosition) {
 	if(spielerAmZug && startPosition->istPositionGueltig()) {
+		spielerAmZug = false;
 		logik->ziehen(startPosition, zielPosition);
 		oberflaeche->oberflaecheAktualisieren();
 		startPosition = new Position(-1,-1);
-		spielerAmZug = false;
-		logik->zugAbschliessen();
 	}
 }
 
