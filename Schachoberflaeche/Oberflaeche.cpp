@@ -29,7 +29,8 @@ void Oberflaeche::oberflaecheErstellen() {
 	//events verlinken
 	neuePartieFenster = new newGameButton(logik, schachZug, this);
     QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),neuePartieFenster, SLOT(openNewGameWindow()));
-	QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(startNewGame()));
+	//QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(startNewGame())); ToDO überprüfen ob irgendwas löschen
+	QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(zugZurueck()));
 
 	QWidget::connect(&mainWidget,SIGNAL(QCloseEvent), neuePartieFenster, SLOT(schlieseFenster()));
 

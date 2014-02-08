@@ -13,5 +13,9 @@ Figuren SpielerMensch::tauscheBauern(){
 	return KOENIG;
 }
 
+void SpielerMensch::spielBeendet() {
+	//ToDo implementieren
+}
+
 SpielerMensch::~SpielerMensch(){
 }

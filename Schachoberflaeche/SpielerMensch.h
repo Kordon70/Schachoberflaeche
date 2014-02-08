@@ -13,6 +13,7 @@ public:
 	Figuren tauscheBauern();
 	void duBistDran();
 	SpielerMensch(Zug* schachZug);
+	void spielBeendet();
 	~SpielerMensch();
 };
 
