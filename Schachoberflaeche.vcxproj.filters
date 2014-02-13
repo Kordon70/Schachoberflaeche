@@ -111,6 +111,12 @@
     <ClCompile Include="GeneratedFiles\Release\moc_SpielBeendet.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FigurenWechsel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FigurenWechsel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Schachoberflaeche\Oberflaeche.h">
@@ -120,9 +126,6 @@
       <Filter>Header Dateien</Filter>
     </ClInclude>
     <ClInclude Include="OberflaecheInterface.h">
-      <Filter>Header Dateien</Filter>
-    </ClInclude>
-    <ClInclude Include="FigurenWechsel.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -148,6 +151,9 @@
       <Filter>Header Dateien</Filter>
     </CustomBuild>
     <CustomBuild Include="SpielBeendet.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FigurenWechsel.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
   </ItemGroup>
