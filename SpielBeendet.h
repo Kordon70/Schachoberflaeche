@@ -7,13 +7,17 @@
 
 class SpielBeendet : public QObject
 {
+	Q_OBJECT
+public:
+	explicit SpielBeendet();
+	~SpielBeendet();
+
 private:
 	QWidget* partieBeendet;
 
-public:
-	SpielBeendet(void);
-	~SpielBeendet(void);
+signals:
+	
 public slots:
-	void schlieseFenster();
+	void schlieseBeendetFenster();
 };
 

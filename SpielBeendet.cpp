@@ -1,8 +1,7 @@
 #include "SpielBeendet.h"
 
 
-SpielBeendet::SpielBeendet(void)
-{
+SpielBeendet::SpielBeendet() : QObject (0) {
 	partieBeendet = new QWidget;
 	partieBeendet->setWindowModality(Qt::ApplicationModal);
     partieBeendet->setWindowTitle(QObject::tr("Neues Spiel"));
@@ -14,18 +13,18 @@ SpielBeendet::SpielBeendet(void)
 	layout->addWidget(gewinner);
 
     QPushButton* ok = new QPushButton("OK");
-	QWidget::connect(ok,SIGNAL(clicked()), this, SLOT(schlieseFenster()));
+	QWidget::connect(ok,SIGNAL(clicked()), this, SLOT(schlieseBeendetFenster()));
 	layout->addWidget(ok);
 
     partieBeendet->setLayout(layout);
     partieBeendet->show();
 }
 
-void SpielBeendet::schlieseFenster() {
+void SpielBeendet::schlieseBeendetFenster() {
 	partieBeendet->close();
 }
 
 
-SpielBeendet::~SpielBeendet(void)
+SpielBeendet::~SpielBeendet()
 {
 }
