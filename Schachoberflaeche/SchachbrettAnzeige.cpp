@@ -31,6 +31,6 @@ void SchachbrettAnzeige::aktualisiereSchachfeld() {
 }
 
 void SchachbrettAnzeige::zugZurueck() {
-	logik->zugRueckgaengig(SCHWARZ); //ToDo farbe rausfinden
+	logik->zugRueckgaengig(logik->welcheFarbeIstDran());
 	schachZug->aktuallisiereOberflaeche();
 }

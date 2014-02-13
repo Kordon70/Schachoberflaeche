@@ -29,14 +29,14 @@ void newGameButton::openNewGameWindow() {
 }
 
 void newGameButton::startePartieGegenComputer() {
-	SpielBeendet* spiel = new SpielBeendet();
+	new SpielBeendet();
 }
 
 void newGameButton::startePartieMitZweiSpieler() {
-	SpielerBenachrichtigung* spielerEins = new SpielerMensch(schachZug);
-	SpielerBenachrichtigung* spielerZwei = new SpielerMensch(schachZug);
-	logik->registriereSpieler(WEISS,spielerEins);
-	logik->registriereSpieler(SCHWARZ,spielerZwei);
+	SpielerMensch* spielerEins = new SpielerMensch(schachZug, WEISS);
+	SpielerMensch* spielerZwei = new SpielerMensch(schachZug, SCHWARZ);
+	logik->registriereSpieler(spielerEins->getSpielFarbe(),spielerEins);
+	logik->registriereSpieler(spielerZwei->getSpielFarbe(),spielerZwei);
 	logik->starteSpiel();
 	schlieseFenster();
 	oberlaeche->oberflaecheAktualisieren();

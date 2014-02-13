@@ -1,8 +1,9 @@
 #include "SpielerMensch.h"
 
 
-SpielerMensch::SpielerMensch(Zug* schachZug){
+SpielerMensch::SpielerMensch(Zug* schachZug, Farbe spielFarbe){
 	this->schachZug = schachZug;
+	this->spielFarbe = spielFarbe;
 }
 
 void SpielerMensch::duBistDran(){
@@ -14,7 +15,11 @@ Figuren SpielerMensch::tauscheBauern(){
 }
 
 void SpielerMensch::spielBeendet() {
-	//ToDo implementieren
+	new SpielBeendet();
+}
+
+Farbe SpielerMensch::getSpielFarbe() {
+	return spielFarbe;
 }
 
 SpielerMensch::~SpielerMensch(){
