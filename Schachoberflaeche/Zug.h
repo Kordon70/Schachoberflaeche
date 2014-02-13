@@ -18,6 +18,7 @@ public:
 	void beginneZug(Position* startPosition);
 	void beendeZug(Position* zielPosition);
 	void setzteOberflaeche(OberflaecheInterface* oberflaeche);
+	void aktuallisiereOberflaeche();
 	~Zug(void);
 };
 

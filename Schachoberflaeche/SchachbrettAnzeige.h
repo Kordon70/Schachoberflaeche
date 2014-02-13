@@ -28,7 +28,6 @@ public:
 	void aktualisiereSchachfeld();
 
 public slots:
-	void startNewGame();
 	void zugZurueck();
 
 signals:

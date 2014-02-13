@@ -30,10 +30,7 @@ void SchachbrettAnzeige::aktualisiereSchachfeld() {
 	}
 }
 
-void SchachbrettAnzeige::startNewGame() {
-	aktualisiereSchachfeld();
-}
-
 void SchachbrettAnzeige::zugZurueck() {
 	logik->zugRueckgaengig(SCHWARZ); //ToDo farbe rausfinden
+	schachZug->aktuallisiereOberflaeche();
 }

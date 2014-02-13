@@ -53,8 +53,8 @@ QPixmap* Schachfeld::figureToPicture() {
 		bildName = ":/images/Springer-";
 		break;
 	default:
-		//return new QPixmap(":/images/empty.png");
-		return new QPixmap(":/images/red.png");
+		return new QPixmap(":/images/empty.png");
+		//return new QPixmap(":/images/red.png");
 	}
 	if(figur.second==SCHWARZ) {
 		bildName += "schwarz.png";
@@ -106,15 +106,8 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
          QLabel *newIcon = new QLabel(this);
          newIcon->setPixmap(pixmap);
          newIcon->move(event->pos() - offset);
-         newIcon->show();
          newIcon->setAttribute(Qt::WA_DeleteOnClose);
 		 
-         if (event->source() == this) {
-             event->setDropAction(Qt::MoveAction);
-             event->accept();
-         } else {
-             event->acceptProposedAction();
-         }
      } else {
          event->ignore();
      }
@@ -161,5 +154,4 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
 
 Schachfeld::~Schachfeld()
 {
-	// f->close(); //löschen
 }

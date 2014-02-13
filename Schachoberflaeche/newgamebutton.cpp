@@ -9,6 +9,7 @@ newGameButton::newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInte
 
 void newGameButton::openNewGameWindow() {
     neuePartie = new QWidget;
+	neuePartie->setWindowModality(Qt::ApplicationModal);
     neuePartie->setWindowTitle(QObject::tr("Neues Spiel"));
 
     QVBoxLayout* layout = new QVBoxLayout;
