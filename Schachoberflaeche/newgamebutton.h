@@ -7,6 +7,8 @@
 
 #include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
 
+#include "../SpielBeendet.h" //ToDo verschieben und löschen
+
 #include "SpielerMensch.h"
 
 class newGameButton : public QObject

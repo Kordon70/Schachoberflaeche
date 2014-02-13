@@ -29,7 +29,7 @@ void newGameButton::openNewGameWindow() {
 }
 
 void newGameButton::startePartieGegenComputer() {
-	
+	SpielBeendet* spiel = new SpielBeendet();
 }
 
 void newGameButton::startePartieMitZweiSpieler() {

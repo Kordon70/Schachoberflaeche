@@ -99,6 +99,12 @@
     <ClCompile Include="Schachoberflaeche\SpielerMensch.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
+    <ClCompile Include="FigurenWechsel.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SpielBeendet.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Schachoberflaeche\Oberflaeche.h">
@@ -108,6 +114,12 @@
       <Filter>Header Dateien</Filter>
     </ClInclude>
     <ClInclude Include="OberflaecheInterface.h">
+      <Filter>Header Dateien</Filter>
+    </ClInclude>
+    <ClInclude Include="FigurenWechsel.h">
+      <Filter>Header Dateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SpielBeendet.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
   </ItemGroup>

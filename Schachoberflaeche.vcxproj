@@ -135,6 +135,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FigurenWechsel.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_SchachbrettAnzeige.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -166,12 +167,15 @@
     <ClCompile Include="Schachoberflaeche\Oberflaeche.cpp" />
     <ClCompile Include="Schachoberflaeche\SpielerMensch.cpp" />
     <ClCompile Include="Schachoberflaeche\Zug.cpp" />
+    <ClCompile Include="SpielBeendet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FigurenWechsel.h" />
     <ClInclude Include="OberflaecheInterface.h" />
     <ClInclude Include="Schachoberflaeche\Oberflaeche.h" />
     <ClInclude Include="Schachoberflaeche\SpielerMensch.h" />
     <ClInclude Include="Schachoberflaeche\Zug.h" />
+    <ClInclude Include="SpielBeendet.h" />
     <CustomBuild Include="Schachoberflaeche\SchachbrettAnzeige.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing SchachbrettAnzeige.h...</Message>
