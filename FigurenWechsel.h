@@ -4,13 +4,17 @@
 #include <QVBoxLayout>
 #include <QObject>
 
-class FigurenWechsel : public QObject
-{
+#include "../../SchachLogik/SchachLogik/src/Figuren.h"
 
+class FigurenWechsel : public QObject {
+	Q_OBJECT
 private:
 	QWidget* bauernTausch;
 public:
-	FigurenWechsel(void);
-	~FigurenWechsel(void);
+	FigurenWechsel(Figuren& figur);
+	~FigurenWechsel();
+signals:
+public slots:
+	void setDame(Figuren& figur);
 };
 

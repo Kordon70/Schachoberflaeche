@@ -3,6 +3,7 @@
 #include "zug.h"
 #include "../../SchachLogik/SchachLogik/src/SpielerBenachrichtigung.h"
 #include "../SpielBeendet.h"
+#include "../FigurenWechsel.h"
 
 class SpielerMensch : public SpielerBenachrichtigung
 {

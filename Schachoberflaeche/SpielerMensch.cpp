@@ -11,7 +11,9 @@ void SpielerMensch::duBistDran(){
 }
 
 Figuren SpielerMensch::tauscheBauern(){
-	return KOENIG;
+	Figuren gewaehlt;
+	new FigurenWechsel(gewaehlt);
+	return gewaehlt;
 }
 
 void SpielerMensch::spielBeendet() {
