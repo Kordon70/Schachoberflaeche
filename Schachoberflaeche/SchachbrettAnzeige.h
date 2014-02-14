@@ -1,10 +1,10 @@
 #ifndef SCHACHBRETTANZEIGE_H
 #define SCHACHBRETTANZEIGE_H
 
+#include <vector>
+
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-
-#include <vector>
 
 #include "Schachfeld.h"
 #include "Zug.h"

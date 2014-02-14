@@ -15,7 +15,7 @@ class newGameButton : public QObject
 {
     Q_OBJECT
 public:
-    explicit newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche, QObject *parent = 0);
+    newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche, QObject *parent = 0);
 
 private:
     QWidget* neuePartie;

@@ -12,10 +12,9 @@ class FigurenWechsel : public QObject
 {
 	Q_OBJECT
 public:
-	explicit FigurenWechsel(Figuren& figur);
+	FigurenWechsel(Figuren& figur);
 	~FigurenWechsel();
 private:
-	//QWidget* bauernTausch;
 	Figuren& wechselFigur;
 	QDialog* bauernTausch;
 signals:

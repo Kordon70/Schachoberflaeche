@@ -1,7 +1,7 @@
 #pragma once
 
-#include "zug.h"
 #include "../../SchachLogik/SchachLogik/src/SpielerBenachrichtigung.h"
+#include "zug.h"
 #include "../SpielBeendet.h"
 #include "../FigurenWechsel.h"
 

@@ -3,9 +3,7 @@
 #include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
 #include "OberflaecheInterface.h"
 
-class Zug
-{
-
+class Zug {
 private:
 	Position* startPosition;
 	Position* ungueltigePosition;
@@ -20,6 +18,6 @@ public:
 	void beendeZug(Position* zielPosition);
 	void setzteOberflaeche(OberflaecheInterface* oberflaeche);
 	void aktuallisiereOberflaeche();
-	~Zug(void);
+	~Zug();
 };
 

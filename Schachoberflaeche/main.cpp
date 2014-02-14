@@ -8,10 +8,8 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-	//Schachlogik erstellen und Figuren anzeigen
 	SchachLogik* logik = new SchachLogik();
 	Zug* zugDurchfruehren = new Zug(logik);
-
 	Oberflaeche* gui = new Oberflaeche(logik, zugDurchfruehren);
 	gui->oberflaecheErstellen();
 

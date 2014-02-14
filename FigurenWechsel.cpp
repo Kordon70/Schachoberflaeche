@@ -29,7 +29,6 @@ FigurenWechsel::FigurenWechsel(Figuren& figur) : QObject(0), wechselFigur(figur)
 	layout->addWidget(springer);
 	layout->addWidget(dame);
     
-
     bauernTausch->setLayout(layout);
 	bauernTausch->exec();
 }

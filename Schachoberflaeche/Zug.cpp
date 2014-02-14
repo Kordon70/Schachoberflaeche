@@ -3,9 +3,8 @@
 
 Zug::Zug(SchachLogik* logik) {
 	this->logik = logik;
-	spielerAmZug = false; //ToDo auf false setzten
-	ungueltigePosition = new Position(-1,-1);
-	startPosition = ungueltigePosition;
+	spielerAmZug = false;
+	startPosition = ungueltigePosition = new Position(-1,-1);
 }
 
 void Zug::zugBeginnen() {
@@ -35,6 +34,5 @@ void Zug::aktuallisiereOberflaeche() {
 	oberflaeche->oberflaecheAktualisieren();
 }
 
-Zug::~Zug(void)
-{
+Zug::~Zug() {
 }

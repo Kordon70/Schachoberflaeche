@@ -32,5 +32,7 @@ void SchachbrettAnzeige::aktualisiereSchachfeld() {
 
 void SchachbrettAnzeige::zugZurueck() {
 	logik->zugRueckgaengig(logik->welcheFarbeIstDran());
-	schachZug->aktuallisiereOberflaeche();
+	if(!logik->istSpielBeendet()) {
+		schachZug->aktuallisiereOberflaeche();
+	}
 }

@@ -6,11 +6,11 @@ SpielerMensch::SpielerMensch(Zug* schachZug, Farbe spielFarbe){
 	this->spielFarbe = spielFarbe;
 }
 
-void SpielerMensch::duBistDran(){
+void SpielerMensch::duBistDran() {
 	schachZug->zugBeginnen();
 }
 
-Figuren SpielerMensch::tauscheBauern(){
+Figuren SpielerMensch::tauscheBauern() {
 	Figuren gewaehlt;
 	new FigurenWechsel(gewaehlt);
 	return gewaehlt;
@@ -24,5 +24,5 @@ Farbe SpielerMensch::getSpielFarbe() {
 	return spielFarbe;
 }
 
-SpielerMensch::~SpielerMensch(){
+SpielerMensch::~SpielerMensch() {
 }

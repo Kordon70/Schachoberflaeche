@@ -12,15 +12,15 @@ void newGameButton::openNewGameWindow() {
 	neuePartie->setWindowModality(Qt::ApplicationModal);
     neuePartie->setWindowTitle(QObject::tr("Neues Spiel"));
 
-    QVBoxLayout* layout = new QVBoxLayout;
-
     QPushButton* einSpieler = new QPushButton("1 Spieler");
 	QWidget::connect(einSpieler,SIGNAL(clicked()), this, SLOT(startePartieGegenComputer()));
     QPushButton* zweiSpieler = new QPushButton("2 Spieler");
 	QWidget::connect(zweiSpieler,SIGNAL(clicked()), this, SLOT(startePartieMitZweiSpieler()));
     QPushButton* fensterSchliesen = new QPushButton("Abbrechen");
 	QWidget::connect(fensterSchliesen,SIGNAL(clicked()), this, SLOT(schlieseFenster()));
-    layout->addWidget(einSpieler);
+    
+	QVBoxLayout* layout = new QVBoxLayout;
+	layout->addWidget(einSpieler);
     layout->addWidget(zweiSpieler);
 	layout->addWidget(fensterSchliesen);
 
@@ -29,7 +29,7 @@ void newGameButton::openNewGameWindow() {
 }
 
 void newGameButton::startePartieGegenComputer() {
-	new SpielBeendet();
+	new SpielBeendet(); //ToDo nur zum testen
 }
 
 void newGameButton::startePartieMitZweiSpieler() {

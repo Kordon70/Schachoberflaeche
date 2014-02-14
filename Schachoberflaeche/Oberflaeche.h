@@ -24,7 +24,6 @@ public:
 	Oberflaeche(SchachLogik* logik, Zug* schachzug);
 	void oberflaecheErstellen();
 	void oberflaecheAktualisieren();
-
 	~Oberflaeche(void);
 };
 

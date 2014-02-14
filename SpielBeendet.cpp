@@ -6,14 +6,12 @@ SpielBeendet::SpielBeendet() : QObject (0) {
 	partieBeendet->setWindowModality(Qt::ApplicationModal);
     partieBeendet->setWindowTitle(QObject::tr("Neues Spiel"));
 
-    QVBoxLayout* layout = new QVBoxLayout;
-
 	QLabel* gewinner = new QLabel("Gewonnen hat einer von beiden");
-
-	layout->addWidget(gewinner);
-
-    QPushButton* ok = new QPushButton("OK");
+	QPushButton* ok = new QPushButton("OK");
 	QWidget::connect(ok,SIGNAL(clicked()), this, SLOT(schlieseBeendetFenster()));
+
+	QVBoxLayout* layout = new QVBoxLayout;
+	layout->addWidget(gewinner);
 	layout->addWidget(ok);
 
     partieBeendet->setLayout(layout);
@@ -25,6 +23,5 @@ void SpielBeendet::schlieseBeendetFenster() {
 }
 
 
-SpielBeendet::~SpielBeendet()
-{
+SpielBeendet::~SpielBeendet() {
 }

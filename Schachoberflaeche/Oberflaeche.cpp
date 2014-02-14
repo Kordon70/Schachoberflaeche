@@ -10,28 +10,21 @@ Oberflaeche::Oberflaeche(SchachLogik* logik, Zug* schachzug)
 
 void Oberflaeche::oberflaecheErstellen() {
 	chess = new SchachbrettAnzeige(logik, schachZug);
-	QVBoxLayout* verticalLayout = chess->initializeChessField();
 
-	QPushButton* buttonNeuePartie = new QPushButton;
-    buttonNeuePartie->setText("Neue Partie");
-	QPushButton* buttonZugZurueck = new QPushButton;
-	buttonZugZurueck->setText("Zug zurück");
-	QPushButton* buttonEnde = new QPushButton;
-    buttonEnde->setText("Beenden");
+	QPushButton* buttonNeuePartie = new QPushButton("Neue Partie");
+	QPushButton* buttonZugZurueck = new QPushButton("Zug zurück");
 
 	QHBoxLayout* horizonatalButtonLayout = new QHBoxLayout;
 	horizonatalButtonLayout->addWidget(buttonNeuePartie);
 	horizonatalButtonLayout->addWidget(buttonZugZurueck);
 	
+	QVBoxLayout* verticalLayout = chess->initializeChessField();
 	verticalLayout->addLayout(horizonatalButtonLayout);
 	mainWidget.setLayout(verticalLayout);
 
-	//events verlinken
 	neuePartieFenster = new newGameButton(logik, schachZug, this);
     QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),neuePartieFenster, SLOT(openNewGameWindow()));
 	QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(zugZurueck()));
-
-	QWidget::connect(&mainWidget,SIGNAL(QCloseEvent), neuePartieFenster, SLOT(schlieseFenster()));
 
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();
@@ -41,6 +34,5 @@ void Oberflaeche::oberflaecheAktualisieren() {
 	chess->aktualisiereSchachfeld();
 }
 
-Oberflaeche::~Oberflaeche(void)
-{
+Oberflaeche::~Oberflaeche() {
 }

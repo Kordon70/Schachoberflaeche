@@ -1,7 +1,6 @@
 #ifndef SCHACHFELD_H
 #define SCHACHFELD_H
 
-
 #include <QFrame>
 #include <QLabel>
 
@@ -12,13 +11,12 @@
 #include "Zug.h"
 
 class QDragEnterEvent;
- class QDropEvent;
+class QDropEvent;
 
  class Schachfeld: public QFrame
 {
     Q_OBJECT
 private:
-
 
 	SchachLogik* logik;
 	Zug* schachZug;

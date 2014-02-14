@@ -2,10 +2,7 @@
 #include <QtGui>
 
 Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent)
-    : QFrame(parent)
-{
-	
-
+    : QFrame(parent) {
 	this->logik = logik;
 	this->schachZug = schachZug;
 	this->positionDesFeldes = positionDesFeldes;
@@ -32,8 +29,7 @@ void Schachfeld::aendereBild() {
 QPixmap* Schachfeld::figureToPicture() {
 	QString bildName;
 	pair<Figuren, Farbe> figur = logik->getSpielfeld().getFigurAnPosition(*positionDesFeldes);
-	switch (figur.first)
-	{
+	switch (figur.first) {
 	case KOENIG:
 		bildName = ":/images/Koenig-";
 		break;
@@ -54,7 +50,6 @@ QPixmap* Schachfeld::figureToPicture() {
 		break;
 	default:
 		return new QPixmap(":/images/empty.png");
-		//return new QPixmap(":/images/red.png");
 	}
 	if(figur.second==SCHWARZ) {
 		bildName += "schwarz.png";
@@ -64,8 +59,7 @@ QPixmap* Schachfeld::figureToPicture() {
 	return new QPixmap(bildName);
 }
 
-void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
- {
+void Schachfeld::dragEnterEvent(QDragEnterEvent *event) {
 	 if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
@@ -78,8 +72,7 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
      }
  }
 
- void Schachfeld::dragMoveEvent(QDragMoveEvent *event)
- {
+ void Schachfeld::dragMoveEvent(QDragMoveEvent *event) {
 	 schachZug->beginneZug(positionDesFeldes);
      if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          if (event->source() == this) {
@@ -93,8 +86,7 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
      }
  }
 
- void Schachfeld::dropEvent(QDropEvent *event)
- {
+ void Schachfeld::dropEvent(QDropEvent *event) {
      if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
          QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
          QDataStream dataStream(&itemData, QIODevice::ReadOnly);
@@ -115,8 +107,7 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
 	 schachZug->beendeZug(positionDesFeldes);
  }
 
- void Schachfeld::mousePressEvent(QMouseEvent *event)
- {
+ void Schachfeld::mousePressEvent(QMouseEvent *event) {
      QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
      if (!child)
          return;
@@ -152,6 +143,5 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event)
  }
 
 
-Schachfeld::~Schachfeld()
-{
+Schachfeld::~Schachfeld() {
 }
