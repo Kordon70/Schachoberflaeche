@@ -5,8 +5,11 @@ FigurenWechsel::FigurenWechsel(Figuren& figur) : QObject(0), wechselFigur(figur)
 
 	bauernTausch = new QDialog;
 	bauernTausch->setWindowModality(Qt::ApplicationModal);
-	bauernTausch->setWindowFlags(bauernTausch->windowFlags() & ~Qt::WindowContextHelpButtonHint);
+	bauernTausch->setWindowFlags(bauernTausch->windowFlags() & ~Qt::WindowContextHelpButtonHint & 
+		~Qt::WindowCloseButtonHint);
+	bauernTausch->setWindowTitle("Bauerntausch");
 
+	QLabel* auswahl = new QLabel("Mit welcher Figur wollen Sie ihren Bauer tauschen?");
     QPushButton* bauer = new QPushButton("Bauer");
 	QWidget::connect(bauer,SIGNAL(clicked()), this, SLOT(setBauer()));
 	QPushButton* turm = new QPushButton("Turm");
@@ -19,6 +22,7 @@ FigurenWechsel::FigurenWechsel(Figuren& figur) : QObject(0), wechselFigur(figur)
 	QWidget::connect(dame,SIGNAL(clicked()), this, SLOT(setDame()));
 
     QVBoxLayout* layout = new QVBoxLayout;
+	layout->addWidget(auswahl);
     layout->addWidget(bauer);
 	layout->addWidget(turm);
 	layout->addWidget(laufer);

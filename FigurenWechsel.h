@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QObject>
 #include <QDialog>
+#include <QLabel>
 
 #include "../../SchachLogik/SchachLogik/src/Figuren.h"
 
