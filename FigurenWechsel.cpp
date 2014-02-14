@@ -1,27 +1,24 @@
 #include "FigurenWechsel.h"
 
 
-FigurenWechsel::FigurenWechsel(Figuren& figur)
-{
-	bauernTausch = new QWidget;
+FigurenWechsel::FigurenWechsel(Figuren& figur) : QObject(0), wechselFigur(figur){
+
+	bauernTausch = new QDialog;
 	bauernTausch->setWindowModality(Qt::ApplicationModal);
-    bauernTausch->setWindowTitle(QObject::tr("Neues Spiel"));
-
-    QVBoxLayout* layout = new QVBoxLayout;
-
-	//ToDo Methodenaufrufe für Buttons noch falsch
+	bauernTausch->setWindowFlags(bauernTausch->windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
     QPushButton* bauer = new QPushButton("Bauer");
-	QWidget::connect(bauer,SIGNAL(clicked()), this, SLOT(setDame(figur)));
+	QWidget::connect(bauer,SIGNAL(clicked()), this, SLOT(setBauer()));
 	QPushButton* turm = new QPushButton("Turm");
-	QWidget::connect(turm,SIGNAL(clicked()), this, SLOT(setDame(figur)));
+	QWidget::connect(turm,SIGNAL(clicked()), this, SLOT(setTurm()));
 	QPushButton* laufer = new QPushButton("Läufer");
-	QWidget::connect(laufer,SIGNAL(clicked()), this, SLOT(setDame(figur)));
+	QWidget::connect(laufer,SIGNAL(clicked()), this, SLOT(setLauefer()));
 	QPushButton* springer = new QPushButton("Springer");
-	QWidget::connect(springer,SIGNAL(clicked()), this, SLOT(setDame(figur)));
+	QWidget::connect(springer,SIGNAL(clicked()), this, SLOT(setSpringer()));
 	QPushButton* dame = new QPushButton("Dame");
-	QWidget::connect(dame,SIGNAL(clicked()), this, SLOT(setDame(figur)));
-	
+	QWidget::connect(dame,SIGNAL(clicked()), this, SLOT(setDame()));
+
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(bauer);
 	layout->addWidget(turm);
 	layout->addWidget(laufer);
@@ -30,15 +27,34 @@ FigurenWechsel::FigurenWechsel(Figuren& figur)
     
 
     bauernTausch->setLayout(layout);
-    bauernTausch->show();
+	bauernTausch->exec();
 }
 
-void FigurenWechsel::setDame(Figuren& figur) {
-	figur = DAME;
+void FigurenWechsel::setBauer() {
+	wechselFigur = BAUER;
+	bauernTausch->close();
+}
 
+void FigurenWechsel::setTurm() {
+	wechselFigur = TURM;
+	bauernTausch->close();
+}
+
+void FigurenWechsel::setLauefer() {
+	wechselFigur = LAEUFER;
+	bauernTausch->close();
+}
+
+void FigurenWechsel::setSpringer() {
+	wechselFigur = SPRINGER;
+	bauernTausch->close();
+}
+
+void FigurenWechsel::setDame() {
+	wechselFigur = DAME;
+	bauernTausch->close();
 }
 
 
-FigurenWechsel::~FigurenWechsel(void)
-{
+FigurenWechsel::~FigurenWechsel() {
 }

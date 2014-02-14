@@ -3,18 +3,27 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QObject>
+#include <QDialog>
 
 #include "../../SchachLogik/SchachLogik/src/Figuren.h"
 
-class FigurenWechsel : public QObject {
+class FigurenWechsel : public QObject
+{
 	Q_OBJECT
-private:
-	QWidget* bauernTausch;
 public:
-	FigurenWechsel(Figuren& figur);
+	explicit FigurenWechsel(Figuren& figur);
 	~FigurenWechsel();
+private:
+	//QWidget* bauernTausch;
+	Figuren& wechselFigur;
+	QDialog* bauernTausch;
 signals:
+
 public slots:
-	void setDame(Figuren& figur);
+	void setBauer();
+	void setTurm();
+	void setLauefer();
+	void setSpringer();
+	void setDame();
 };
 

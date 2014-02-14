@@ -4,7 +4,8 @@
 Zug::Zug(SchachLogik* logik) {
 	this->logik = logik;
 	spielerAmZug = false; //ToDo auf false setzten
-	startPosition = new Position(-1,-1);
+	ungueltigePosition = new Position(-1,-1);
+	startPosition = ungueltigePosition;
 }
 
 void Zug::zugBeginnen() {
@@ -22,7 +23,7 @@ void Zug::beendeZug(Position* zielPosition) {
 		spielerAmZug = false;
 		logik->ziehen(*startPosition, *zielPosition);
 		aktuallisiereOberflaeche();
-		startPosition = new Position(-1,-1);
+		startPosition = ungueltigePosition;
 	}
 }
 

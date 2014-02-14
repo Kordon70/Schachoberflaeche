@@ -33,6 +33,7 @@ void newGameButton::startePartieGegenComputer() {
 }
 
 void newGameButton::startePartieMitZweiSpieler() {
+	logik->neustarten();
 	SpielerMensch* spielerEins = new SpielerMensch(schachZug, WEISS);
 	SpielerMensch* spielerZwei = new SpielerMensch(schachZug, SCHWARZ);
 	logik->registriereSpieler(spielerEins->getSpielFarbe(),spielerEins);

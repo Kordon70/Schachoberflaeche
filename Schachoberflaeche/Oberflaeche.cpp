@@ -11,7 +11,7 @@ Oberflaeche::Oberflaeche(SchachLogik* logik, Zug* schachzug)
 void Oberflaeche::oberflaecheErstellen() {
 	chess = new SchachbrettAnzeige(logik, schachZug);
 	QVBoxLayout* verticalLayout = chess->initializeChessField();
-	//buttons erstellen und zu layout hinzufügen
+
 	QPushButton* buttonNeuePartie = new QPushButton;
     buttonNeuePartie->setText("Neue Partie");
 	QPushButton* buttonZugZurueck = new QPushButton;
@@ -29,7 +29,6 @@ void Oberflaeche::oberflaecheErstellen() {
 	//events verlinken
 	neuePartieFenster = new newGameButton(logik, schachZug, this);
     QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),neuePartieFenster, SLOT(openNewGameWindow()));
-	//QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(startNewGame())); ToDO überprüfen ob irgendwas löschen
 	QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(zugZurueck()));
 
 	QWidget::connect(&mainWidget,SIGNAL(QCloseEvent), neuePartieFenster, SLOT(schlieseFenster()));

@@ -8,6 +8,7 @@ class Zug
 
 private:
 	Position* startPosition;
+	Position* ungueltigePosition;
 	SchachLogik* logik;
 	OberflaecheInterface* oberflaeche;
 	bool spielerAmZug;
