@@ -20,7 +20,7 @@ void Zug::beginneZug(Position* startPosition) {
 void Zug::beendeZug(Position* zielPosition) {
 	if(spielerAmZug && startPosition->istPositionGueltig()) {
 		spielerAmZug = false;
-		logik->ziehen(startPosition, zielPosition);
+		logik->ziehen(*startPosition, *zielPosition);
 		aktuallisiereOberflaeche();
 		startPosition = new Position(-1,-1);
 	}
