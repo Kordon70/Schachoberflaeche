@@ -21,8 +21,9 @@ private:
 	SchachLogik* logik;
 	Zug* schachZug;
     QLabel* bild;
+	QLabel* altesBild;
 	Position* positionDesFeldes;
-	QPixmap* figureToPicture();
+	QPixmap figureToPicture();
 
 public:
 	Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent = 0);

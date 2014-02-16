@@ -16,17 +16,24 @@ Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDes
     } else if (feldFarbe == SCHWARZ) {
         this->setStyleSheet("background-color:grey;");
 	}
+	altesBild = 0;
+	bild = new QLabel(this);
+	bild->setPixmap(QPixmap(":/images/empty.png"));
+	bild->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 void Schachfeld::aendereBild() {
+	if(altesBild != 0) {
+		delete altesBild;
+	}
+	altesBild = bild;
 	bild = new QLabel(this);
-	QPixmap* pixmapBild  = figureToPicture();
-	bild->setPixmap(*pixmapBild);
+	bild->setPixmap(figureToPicture());
 	bild->show();
 	bild->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-QPixmap* Schachfeld::figureToPicture() {
+QPixmap Schachfeld::figureToPicture() {
 	QString bildName;
 	pair<Figuren, Farbe> figur = logik->getSpielfeld().getFigurAnPosition(*positionDesFeldes);
 	switch (figur.first) {
@@ -49,14 +56,14 @@ QPixmap* Schachfeld::figureToPicture() {
 		bildName = ":/images/Springer-";
 		break;
 	default:
-		return new QPixmap(":/images/empty.png");
+		return QPixmap(":/images/empty.png");
 	}
 	if(figur.second==SCHWARZ) {
 		bildName += "schwarz.png";
 	} else {
 		bildName += "weis.png";
 	}
-	return new QPixmap(bildName);
+	return QPixmap(bildName);
 }
 
 void Schachfeld::dragEnterEvent(QDragEnterEvent *event) {
@@ -137,7 +144,6 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event) {
      if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
          child->close();
      else {
-         child->show();
          child->setPixmap(pixmap);
      }
  }
