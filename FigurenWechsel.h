@@ -19,7 +19,7 @@ private:
 	QDialog* bauernTausch;
 signals:
 
-public slots:
+private slots:
 	void setBauer();
 	void setTurm();
 	void setLauefer();

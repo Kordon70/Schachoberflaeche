@@ -29,7 +29,7 @@
     <PlatformToolSet>v110</PlatformToolSet>
     <OutputDirectory>debug\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
     <IntermediateDirectory>debug\</IntermediateDirectory>
     <PrimaryOutput>Schachoberflaeche</PrimaryOutput>
@@ -151,6 +151,9 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_SpielBeendet.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ZugProblemAusgabe.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_Schachfiguren.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -172,6 +175,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_SpielBeendet.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ZugProblemAusgabe.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Schachoberflaeche\SchachbrettAnzeige.cpp" />
     <ClCompile Include="Schachoberflaeche\Schachfeld.cpp" />
     <ClCompile Include="Schachoberflaeche\main.cpp" />
@@ -180,8 +186,19 @@
     <ClCompile Include="Schachoberflaeche\SpielerMensch.cpp" />
     <ClCompile Include="Schachoberflaeche\Zug.cpp" />
     <ClCompile Include="SpielBeendet.cpp" />
+    <ClCompile Include="ZugProblemAusgabe.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="ZugProblemAusgabe.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing ZugProblemAusgabe.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing ZugProblemAusgabe.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+    </CustomBuild>
     <CustomBuild Include="FigurenWechsel.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing FigurenWechsel.h...</Message>

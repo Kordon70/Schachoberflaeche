@@ -1,7 +1,7 @@
 #include "FigurenWechsel.h"
 
 
-FigurenWechsel::FigurenWechsel(Figuren& figur) : QObject(0), wechselFigur(figur){
+FigurenWechsel::FigurenWechsel(Figuren& figur) : QObject(0), wechselFigur(figur) {
 
 	bauernTausch = new QDialog;
 	bauernTausch->setWindowModality(Qt::ApplicationModal);

@@ -117,6 +117,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_FigurenWechsel.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="ZugProblemAusgabe.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ZugProblemAusgabe.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ZugProblemAusgabe.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Schachoberflaeche\Oberflaeche.h">
@@ -154,6 +163,9 @@
       <Filter>Header Dateien</Filter>
     </CustomBuild>
     <CustomBuild Include="FigurenWechsel.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ZugProblemAusgabe.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -2,6 +2,7 @@
 
 #include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
 #include "OberflaecheInterface.h"
+#include "../ZugProblemAusgabe.h"
 
 class Zug {
 private:
