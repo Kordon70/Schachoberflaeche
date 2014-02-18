@@ -21,9 +21,9 @@ void Zug::beendeZug(Position* zielPosition) {
 	if(spielerAmZug && startPosition->istPositionGueltig()) {
 		spielerAmZug = false;
 		ZugProblem problem = logik->ziehen(*startPosition, *zielPosition);
-		//if (problem != KEIN_PROBLEM_GEFUNDEN) {
+		if (problem != KEIN_PROBLEM_GEFUNDEN) {
 			new ZugProblemAusgabe(problem);
-		//}
+		}
 		aktuallisiereOberflaeche();
 		startPosition = ungueltigePosition;
 	}

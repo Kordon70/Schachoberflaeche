@@ -10,6 +10,8 @@ newGameButton::newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInte
 void newGameButton::openNewGameWindow() {
     neuePartie = new QWidget;
 	neuePartie->setWindowModality(Qt::ApplicationModal);
+	neuePartie->setWindowFlags(neuePartie->windowFlags() & ~Qt::WindowMaximizeButtonHint);
+	neuePartie->setFixedSize(200,120);
     neuePartie->setWindowTitle(QObject::tr("Neues Spiel"));
 
     QPushButton* einSpieler = new QPushButton("1 Spieler");
