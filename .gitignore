@@ -17,6 +17,7 @@ build-Schachoberflaeche-Desktop_Qt_5_1_1_GCC_64bit-Debug/*
 Makefile
 
 Debug/*
+Release/*
 GeneratedFiles/*
 TestResults/*
 *.sdf

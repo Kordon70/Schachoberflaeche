@@ -44,19 +44,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\Schach\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Schachoberflaeche</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\Schach</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Schachoberflaeche</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include;.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets;.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui;.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE;.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore;.\release;.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;.\release;$(QTDIR)\mkspecs\win32-msvc2012;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -93,10 +93,14 @@
     <ResourceCompile>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy .\Schachoberflaeche\lib\release\*.*  $(SolutionDir)$(Configuration)\Schach\ /S
+ /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Qt\Qt5.1.1\5.1.1\msvc2012\include;C:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets;C:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui;C:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE;C:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore;.\debug;C:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;.\debug;$(QTDIR)\mkspecs\win32-msvc2012;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -133,6 +137,9 @@
     <ResourceCompile>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy ".\Schachoberflaeche\lib\debug\*.*"  "$(SolutionDir)$(Configuration)\Schach\" /S /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FigurenWechsel.cpp" />
@@ -193,23 +200,25 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing ZugProblemAusgabe.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL -D_UNICODE  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing ZugProblemAusgabe.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
     </CustomBuild>
     <CustomBuild Include="FigurenWechsel.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing FigurenWechsel.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL -D_UNICODE  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing FigurenWechsel.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
     </CustomBuild>
     <ClInclude Include="OberflaecheInterface.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="Schachoberflaeche\Oberflaeche.h" />
     <ClInclude Include="Schachoberflaeche\SpielerMensch.h" />
     <ClInclude Include="Schachoberflaeche\Zug.h" />
@@ -217,36 +226,36 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing SpielBeendet.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL -D_UNICODE  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing SpielBeendet.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
     </CustomBuild>
     <CustomBuild Include="Schachoberflaeche\SchachbrettAnzeige.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing SchachbrettAnzeige.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL  "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL -D_UNICODE  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing SchachbrettAnzeige.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
     </CustomBuild>
     <CustomBuild Include="Schachoberflaeche\newgamebutton.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing newgamebutton.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL  "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL -D_UNICODE  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing newgamebutton.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
     </CustomBuild>
     <CustomBuild Include="Schachoberflaeche\Schachfeld.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\release" "-I.\..\..\..\..\..\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -DQT_DLL  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing Schachfeld.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL  "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtWidgets" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtGui" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtANGLE" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\include\QtCore" "-I.\debug" "-IC:\Qt\Qt5.1.1\5.1.1\msvc2012\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DQT_DLL -D_UNICODE  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2012" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing Schachfeld.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
@@ -283,7 +292,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Schachoberflaeche\images\Bauer-schwarz.png" />
+    <Image Include="Schachoberflaeche\images\icon.ico" />
     <Image Include="Schachoberflaeche\images\Springer-weis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Schachoberflaeche.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
