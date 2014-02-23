@@ -6,16 +6,16 @@
 #include <QDialog>
 #include <QLabel>
 
-#include "../../SchachLogik/SchachLogik/src/Figuren.h"
+#include "../../SchachLogik/SchachLogik/src/FigurTyp.h"
 
 class FigurenWechsel : public QObject
 {
 	Q_OBJECT
 public:
-	FigurenWechsel(Figuren& figur);
+	FigurenWechsel(FigurTyp& figur);
 	~FigurenWechsel();
 private:
-	Figuren& wechselFigur;
+	FigurTyp& wechselFigur;
 	QDialog* bauernTausch;
 signals:
 

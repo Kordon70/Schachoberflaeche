@@ -13,7 +13,7 @@ private:
 	Farbe spielFarbe;
 
 public:
-	Figuren tauscheBauern();
+	FigurTyp tauscheBauern();
 	void duBistDran();
 	SpielerMensch(Zug* schachZug, Farbe spielFarbe);
 	void spielBeendet();

@@ -6,7 +6,7 @@ ZugProblemAusgabe::ZugProblemAusgabe(ZugProblem zugProblem) : QObject(0) {
 	fehlerAusgabe->setWindowModality(Qt::ApplicationModal);
 	fehlerAusgabe->setWindowFlags(fehlerAusgabe->windowFlags() & ~Qt::WindowContextHelpButtonHint & 
 		~Qt::WindowCloseButtonHint);
-	fehlerAusgabe->setWindowTitle("Zug ungültig");
+	fehlerAusgabe->setWindowTitle(QString::fromStdWString(L"Zug ungültig"));
 	fehlerAusgabe->setFixedSize(200,120);
 
 	QLabel* fehlertext = getFehlertext(zugProblem);
@@ -30,15 +30,13 @@ QLabel* ZugProblemAusgabe::getFehlertext(ZugProblem zugProblem) {
 	case ZUG_NICHT_REGELKONFORM:
 		return new QLabel("Der Zug ist nicht Regelkonform.");
 	case START_ODER_ZIELPOSITION_UNGUELTIG:
-		return new QLabel("Das Start-/Zielfeld ist keine \ngültige Position.");
+		return new QLabel(QString::fromStdWString(L"Das Start-/Zielfeld ist keine \ngültige Position."));
 	case SPIEL_NOCH_NICHT_GESTARTET:
 		return new QLabel("Das Spiel ist noch nicht gestartet.");
 	case FARBE_IST_NICHT_AN_DER_REIHE:
 		return new QLabel("Die andere Farbe ist an der Reihe.");
 	case SPIEL_BEENDET:
 		return new QLabel("Das Spiel ist bereits beendet.");
-	case EVENTUELL_ZUG_INS_SCHACH:
-		return new QLabel("Der Zug ist nicht möglich, da es \neventuell ein Zug ist Schach wäre.");
 	case ZUG_INS_SCHACH:
 		return new QLabel("Der Zug ist nicht möglich, \nda es ein Zug ins Schach wäre.");
 	}

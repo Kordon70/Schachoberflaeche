@@ -10,8 +10,8 @@ void SpielerMensch::duBistDran() {
 	schachZug->zugBeginnen();
 }
 
-Figuren SpielerMensch::tauscheBauern() {
-	Figuren gewaehlt;
+FigurTyp SpielerMensch::tauscheBauern() {
+	FigurTyp gewaehlt;
 	new FigurenWechsel(gewaehlt);
 	return gewaehlt;
 }

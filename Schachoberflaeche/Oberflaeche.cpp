@@ -1,5 +1,5 @@
 #include "Oberflaeche.h"
-
+#include <QTextCodec>
 
 Oberflaeche::Oberflaeche(SchachLogik* logik, Zug* schachzug)
 {
@@ -9,11 +9,9 @@ Oberflaeche::Oberflaeche(SchachLogik* logik, Zug* schachzug)
 }
 
 void Oberflaeche::oberflaecheErstellen() {
-	chess = new SchachbrettAnzeige(logik, schachZug);
-
+	chess = new SchachbrettAnzeige(logik, schachZug);	
 	QPushButton* buttonNeuePartie = new QPushButton("Neue Partie");
-	QPushButton* buttonZugZurueck = new QPushButton("Zug zurück");
-
+	QPushButton* buttonZugZurueck = new QPushButton(QString::fromStdWString(L"Zug zurück"));
 	QHBoxLayout* horizonatalButtonLayout = new QHBoxLayout;
 	horizonatalButtonLayout->addWidget(buttonNeuePartie);
 	horizonatalButtonLayout->addWidget(buttonZugZurueck);
