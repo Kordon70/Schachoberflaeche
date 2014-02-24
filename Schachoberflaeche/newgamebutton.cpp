@@ -31,7 +31,7 @@ void newGameButton::openNewGameWindow() {
 }
 
 void newGameButton::startePartieGegenComputer() {
-	new SpielBeendet(); //ToDo nur zum testen
+	new SpielBeendet(logik); //ToDo nur zum testen
 }
 
 void newGameButton::startePartieMitZweiSpieler() {
@@ -40,6 +40,8 @@ void newGameButton::startePartieMitZweiSpieler() {
 	SpielerMensch* spielerZwei = new SpielerMensch(schachZug, SCHWARZ);
 	logik->registriereSpieler(spielerEins->getSpielFarbe(),spielerEins);
 	logik->registriereSpieler(spielerZwei->getSpielFarbe(),spielerZwei);
+	spielerEins->setLogik(logik);
+	spielerZwei->setLogik(logik);
 	logik->starteSpiel();
 	schlieseFenster();
 	oberlaeche->oberflaecheAktualisieren();

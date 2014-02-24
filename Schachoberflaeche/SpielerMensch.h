@@ -11,6 +11,7 @@ class SpielerMensch : public SpielerBenachrichtigung
 private:
 	Zug* schachZug;
 	Farbe spielFarbe;
+	SchachLogik* logik;
 
 public:
 	FigurTyp tauscheBauern();
@@ -18,6 +19,7 @@ public:
 	SpielerMensch(Zug* schachZug, Farbe spielFarbe);
 	void spielBeendet();
 	Farbe getSpielFarbe();
+	void setLogik(SchachLogik* logik);
 	~SpielerMensch();
 };
 

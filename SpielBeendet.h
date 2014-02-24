@@ -5,15 +5,20 @@
 #include <QObject>
 #include <QLabel>
 
+#include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
+
 class SpielBeendet : public QObject
 {
 	Q_OBJECT
 public:
-	explicit SpielBeendet();
+	SpielBeendet(SchachLogik* logik);
 	~SpielBeendet();
 
 private:
 	QWidget* partieBeendet;
+	SchachLogik* logik;
+
+	QLabel* ausgabe();
 
 signals:
 	

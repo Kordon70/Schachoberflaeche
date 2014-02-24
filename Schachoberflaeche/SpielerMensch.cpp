@@ -17,11 +17,17 @@ FigurTyp SpielerMensch::tauscheBauern() {
 }
 
 void SpielerMensch::spielBeendet() {
-	new SpielBeendet();
+	if (spielFarbe == logik->welcheFarbeIstDran()) {
+		new SpielBeendet(logik);
+	}
 }
 
 Farbe SpielerMensch::getSpielFarbe() {
 	return spielFarbe;
+}
+
+void SpielerMensch::setLogik(SchachLogik* logik) {
+	this->logik = logik;
 }
 
 SpielerMensch::~SpielerMensch() {
