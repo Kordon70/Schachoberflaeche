@@ -31,7 +31,7 @@ void newGameButton::openNewGameWindow() {
 }
 
 void newGameButton::startePartieGegenComputer() {
-	new SpielBeendet(logik); //ToDo nur zum testen
+	new KuenstlicheIntelligenz();
 }
 
 void newGameButton::startePartieMitZweiSpieler() {
