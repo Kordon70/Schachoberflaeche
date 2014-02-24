@@ -6,10 +6,10 @@ Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDes
 	this->logik = logik;
 	this->schachZug = schachZug;
 	this->positionDesFeldes = positionDesFeldes;
-    setMinimumSize(100,100);
+	setFixedSize(76,76);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
-    this->setGeometry(0,0,300,100);
+    this->setGeometry(0,0,76,76);
 	Farbe feldFarbe = logik->getSpielfeld()->getFarbeDesFeldes(*positionDesFeldes);
     if (feldFarbe == WEISS) {
         this->setStyleSheet("background-color:white;");

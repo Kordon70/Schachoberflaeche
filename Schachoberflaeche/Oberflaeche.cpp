@@ -24,6 +24,7 @@ void Oberflaeche::oberflaecheErstellen() {
     QWidget::connect(buttonNeuePartie,SIGNAL(clicked()),neuePartieFenster, SLOT(openNewGameWindow()));
 	QWidget::connect(buttonZugZurueck,SIGNAL(clicked()),chess, SLOT(zugZurueck()));
 
+	mainWidget.setFixedSize(700, 730);
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();
 }

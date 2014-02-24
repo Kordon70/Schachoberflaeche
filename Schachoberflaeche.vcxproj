@@ -282,10 +282,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Schachoberflaeche\images\King-white_256x256_32.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </None>
     <CustomBuild Include="Schachoberflaeche\Schachfiguren.qrc">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(FullPath);.\Schachoberflaeche\images\King-white_256x256_32.png;.\Schachoberflaeche\images\Yanni.jpg;%(AdditionalInputs)</AdditionalInputs>
@@ -298,10 +294,6 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
       <SubType>Designer</SubType>
     </CustomBuild>
-    <None Include="Schachoberflaeche\images\Yanni.jpg">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SchachLogik\SchachLogik\SchachLogik.vcxproj">

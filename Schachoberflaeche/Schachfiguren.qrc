@@ -13,7 +13,6 @@
         <file>images/Koenig-schwarz.png</file>
         <file>images/Koenig-weis.png</file>
 
-        <file>images/red.png</file>
         <file>images/empty.png</file>
     </qresource>
 </RCC>

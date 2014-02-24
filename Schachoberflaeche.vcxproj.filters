@@ -154,15 +154,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Schachoberflaeche\images\King-white_256x256_32.png">
-      <Filter>Resource Dateien</Filter>
-    </None>
     <CustomBuild Include="Schachoberflaeche\Schachfiguren.qrc">
       <Filter>Resource Dateien</Filter>
     </CustomBuild>
-    <None Include="Schachoberflaeche\images\Yanni.jpg">
-      <Filter>Resource Dateien</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Schachoberflaeche\newgamebutton.h">
