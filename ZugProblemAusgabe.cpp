@@ -38,7 +38,7 @@ QLabel* ZugProblemAusgabe::getFehlertext(ZugProblem zugProblem) {
 	case SPIEL_BEENDET:
 		return new QLabel("Das Spiel ist bereits beendet.");
 	case ZUG_INS_SCHACH:
-		return new QLabel("Der Zug ist nicht möglich, \nda es ein Zug ins Schach wäre.");
+		return new QLabel(QString::fromStdWString(L"Der Zug ist nicht möglich, \nda es ein Zug ins Schach wäre."));
 	}
 }
 
