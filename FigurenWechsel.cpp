@@ -12,7 +12,7 @@ FigurenWechsel::FigurenWechsel(FigurTyp& figur) : QObject(0), wechselFigur(figur
 	QLabel* auswahl = new QLabel("Mit welcher Figur wollen Sie ihren Bauer tauschen?");
 	QPushButton* turm = new QPushButton("Turm");
 	QWidget::connect(turm,SIGNAL(clicked()), this, SLOT(setTurm()));
-	QPushButton* laufer = new QPushButton("Läufer");
+	QPushButton* laufer = new QPushButton(QString::fromStdWString(L"Läufer"));
 	QWidget::connect(laufer,SIGNAL(clicked()), this, SLOT(setLauefer()));
 	QPushButton* springer = new QPushButton("Springer");
 	QWidget::connect(springer,SIGNAL(clicked()), this, SLOT(setSpringer()));
