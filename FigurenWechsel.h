@@ -20,7 +20,6 @@ private:
 signals:
 
 private slots:
-	void setBauer();
 	void setTurm();
 	void setLauefer();
 	void setSpringer();
