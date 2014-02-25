@@ -51,6 +51,9 @@ void Oberflaeche::farbeAmZug() {
 	default:
 		amZug->clear();
 	}
+	if (logik->istSpielBeendet()) {
+		amZug->clear();
+	}
 }
 
 Oberflaeche::~Oberflaeche() {
