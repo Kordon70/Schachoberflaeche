@@ -47,6 +47,7 @@ public:
 	Aktualisiert die Schachfelder, sodass die aktuellen Figuren angezeigt werden.
 */
 	void aktualisiereSchachfeld();
+	~SchachbrettAnzeige();
 
 public slots:
 

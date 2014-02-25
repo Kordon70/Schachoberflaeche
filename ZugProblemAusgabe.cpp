@@ -47,4 +47,5 @@ void ZugProblemAusgabe::ok() {
 }
 
 ZugProblemAusgabe::~ZugProblemAusgabe() {
+	delete fehlerAusgabe;
 }

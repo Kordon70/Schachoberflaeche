@@ -52,4 +52,5 @@ void FigurenWechsel::setDame() {
 
 
 FigurenWechsel::~FigurenWechsel() {
+	delete bauernTausch;
 }

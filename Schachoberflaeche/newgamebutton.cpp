@@ -50,3 +50,7 @@ void newGameButton::startePartieMitZweiSpieler() {
 void newGameButton::schlieseFenster() {
 	neuePartie->close();
 }
+
+newGameButton::~newGameButton() {
+	delete neuePartie;
+}

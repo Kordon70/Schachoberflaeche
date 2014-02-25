@@ -31,6 +31,7 @@ public:
 	@param oberlaeche Hauptfenster der Applikation.
 */
     newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche);
+	~newGameButton();
 
 private:
     QWidget* neuePartie;

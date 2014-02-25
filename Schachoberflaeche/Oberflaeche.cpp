@@ -30,8 +30,6 @@ void Oberflaeche::oberflaecheErstellen() {
 	mainWidget.setFixedSize(640, 660);
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();
-
-	horizonatalButtonLayout->update();
 }
 
 void Oberflaeche::oberflaecheAktualisieren() {
@@ -57,4 +55,7 @@ void Oberflaeche::farbeAmZug() {
 }
 
 Oberflaeche::~Oberflaeche() {
+	delete chess;
+	delete amZug;
+	delete neuePartieFenster;
 }

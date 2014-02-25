@@ -39,4 +39,5 @@ void SpielBeendet::schlieseBeendetFenster() {
 
 
 SpielBeendet::~SpielBeendet() {
+	delete partieBeendet;
 }

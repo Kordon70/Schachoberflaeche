@@ -36,3 +36,9 @@ void SchachbrettAnzeige::zugZurueck() {
 		schachZug->aktuallisiereOberflaeche();
 	}
 }
+
+SchachbrettAnzeige::~SchachbrettAnzeige() {
+	for (Schachfeld* feld: schachFelder) {
+		delete feld;
+	}
+}

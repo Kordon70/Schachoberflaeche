@@ -151,4 +151,6 @@ void Schachfeld::dragEnterEvent(QDragEnterEvent *event) {
 
 
 Schachfeld::~Schachfeld() {
+	delete bild;
+	delete altesBild;
 }

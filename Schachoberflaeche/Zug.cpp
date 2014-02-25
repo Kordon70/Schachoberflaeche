@@ -38,4 +38,6 @@ void Zug::aktuallisiereOberflaeche() {
 }
 
 Zug::~Zug() {
+	delete startPosition;
+	delete ungueltigePosition;
 }
