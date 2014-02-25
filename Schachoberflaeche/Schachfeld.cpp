@@ -3,13 +3,14 @@
 
 Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent)
     : QFrame(parent) {
+		int size = 70;
 	this->logik = logik;
 	this->schachZug = schachZug;
 	this->positionDesFeldes = positionDesFeldes;
-	setFixedSize(76,76);
+	setFixedSize(size,size);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
-    this->setGeometry(0,0,76,76);
+    this->setGeometry(0,0,size,size);
 	Farbe feldFarbe = logik->getSpielfeld()->getFarbeDesFeldes(*positionDesFeldes);
     if (feldFarbe == WEISS) {
         this->setStyleSheet("background-color:white;");
