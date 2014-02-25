@@ -15,6 +15,9 @@ void Oberflaeche::oberflaecheErstellen() {
 	QHBoxLayout* horizonatalButtonLayout = new QHBoxLayout;
 	horizonatalButtonLayout->addWidget(buttonNeuePartie);
 	horizonatalButtonLayout->addWidget(buttonZugZurueck);
+	amZug = new QLabel();
+	horizonatalButtonLayout->addWidget(amZug);
+
 	
 	QVBoxLayout* verticalLayout = chess->initializeChessField();
 	verticalLayout->addLayout(horizonatalButtonLayout);
@@ -27,10 +30,27 @@ void Oberflaeche::oberflaecheErstellen() {
 	mainWidget.setFixedSize(700, 730);
 	mainWidget.setWindowTitle(QObject::tr("Schach"));
     mainWidget.show();
+
+	horizonatalButtonLayout->update();
 }
 
 void Oberflaeche::oberflaecheAktualisieren() {
+	farbeAmZug();
+	qApp->processEvents();
 	chess->aktualisiereSchachfeld();
+}
+
+void Oberflaeche::farbeAmZug() {
+	switch (logik->welcheFarbeIstDran()) {
+	case SCHWARZ:
+		amZug->setText("Schwarz ist am Zug.");
+		break;
+	case WEISS:
+		amZug->setText(QString::fromStdWString(L"Weiß ist am Zug."));
+		break;
+	default:
+		amZug->clear();
+	}
 }
 
 Oberflaeche::~Oberflaeche() {

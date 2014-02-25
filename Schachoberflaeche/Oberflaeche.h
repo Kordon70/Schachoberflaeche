@@ -2,6 +2,7 @@
 
 #include <QApplication>
 #include <QPushButton>
+#include <qapplication.h>
 
 #include "../../SchachLogik/SchachLogik/src/SchachLogik.h"
 #include "OberflaecheInterface.h"
@@ -19,6 +20,9 @@ private:
 	Zug* schachZug;
 	SchachbrettAnzeige* chess;
 	newGameButton* neuePartieFenster;
+	QLabel* amZug;
+
+	void farbeAmZug();
 
 public:
 	Oberflaeche(SchachLogik* logik, Zug* schachzug);

@@ -137,9 +137,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Schachoberflaeche\Oberflaeche.h">
-      <Filter>Header Dateien</Filter>
-    </ClInclude>
     <ClInclude Include="Schachoberflaeche\SpielerMensch.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
@@ -156,6 +153,9 @@
   <ItemGroup>
     <CustomBuild Include="Schachoberflaeche\Schachfiguren.qrc">
       <Filter>Resource Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Schachoberflaeche\Oberflaeche.h">
+      <Filter>Header Dateien</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

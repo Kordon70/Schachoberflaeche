@@ -237,7 +237,20 @@
     <ClInclude Include="OberflaecheInterface.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
-    <ClInclude Include="Schachoberflaeche\Oberflaeche.h" />
+    <CustomBuild Include="Schachoberflaeche\Oberflaeche.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+    </CustomBuild>
     <ClInclude Include="Schachoberflaeche\SpielerMensch.h" />
     <ClInclude Include="Schachoberflaeche\Zug.h" />
     <CustomBuild Include="SpielBeendet.h">
