@@ -13,6 +13,13 @@
 class QDragEnterEvent;
 class QDropEvent;
 
+/**
+	Ein Schachfeld mit einer Hindergundfarbe und einem Bild mit der Figur 
+	die auf dem Feld steht.
+
+    @author Arne Maier
+*/
+
  class Schachfeld: public QFrame
 {
     Q_OBJECT
@@ -25,16 +32,27 @@ private:
 	Position* positionDesFeldes;
 	QPixmap figureToPicture();
 
-public:
-	Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent = 0);
-    ~Schachfeld();
-	void aendereBild();
-
-protected:
 	void dragEnterEvent(QDragEnterEvent *event);
      void dragMoveEvent(QDragMoveEvent *event);
      void dropEvent(QDropEvent *event);
      void mousePressEvent(QMouseEvent *event);
+
+public:
+/**
+	Erzeugt ein Schachfeld Objekt.
+
+	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
+	@param schachZug Zug der die Bewegungen der Figuren auf dem Feld registriert.
+	@param positionDesFeldes Position des einzelen Feld auf dem ganzen Schachfeld.
+*/
+	Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes);
+    ~Schachfeld();
+
+/**
+	Ändert das Bild des Schachfeldes in dass der Figur die laut Logik auf dem Feld steht.
+*/
+	void aendereBild();
+
 };
 
 #endif // SCHACHFELD_H

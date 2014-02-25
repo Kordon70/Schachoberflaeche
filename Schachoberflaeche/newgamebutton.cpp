@@ -1,7 +1,7 @@
 #include "newgamebutton.h"
 
-newGameButton::newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche, QObject *parent) :
-    QObject(parent) {
+newGameButton::newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche) :
+    QObject(0) {
 		this->schachZug = schachZug;
 		this->logik = logik;
 		this->oberlaeche = oberlaeche;

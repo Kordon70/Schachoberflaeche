@@ -5,6 +5,12 @@
 #include "../SpielBeendet.h"
 #include "../FigurenWechsel.h"
 
+/**
+	Über diese Klasse wird die Oberfläche über Änderungen in der Logik informiert.
+
+    @author Arne Maier
+*/
+
 class SpielerMensch : public SpielerBenachrichtigung
 {
 
@@ -14,11 +20,45 @@ private:
 	SchachLogik* logik;
 
 public:
+
+/**
+	Öffnet ein Fenster, indem ausgewählt wird, gegen welche Figur der Bauer, der das andere
+	Ende des Schachfeldes erreicht hat getauscht wird.
+
+	@return FigurTyp gegen den der Bauer eingetauscht werden soll (DAME, LAEUFER, SPRINGER, TURM).
+*/
 	FigurTyp tauscheBauern();
+
+/**
+	Der Zug wartet aber jetzt auf Bewegungen der Figuren und führt eine Bewegung aus.
+*/
 	void duBistDran();
+
+/**
+	Erzeugt ein SpielerMensch Objekt.
+
+	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
+	@param Farbe Farbe des Spielers, der durch das Objekt in der Logik repräsentiert wird.
+*/
 	SpielerMensch(Zug* schachZug, Farbe spielFarbe);
+
+/**
+	Öffnet das SpielBeendet Fenster.
+*/
 	void spielBeendet();
+
+/**
+	Gibt die Farbe des Spielers, der durch das Objekt in der Logik repräsentiert wird zurück.
+
+	@return Farbe Farbe des Spielers, der durch das Objekt in der Logik repräsentiert wird.
+*/
 	Farbe getSpielFarbe();
+
+/**
+	Übergibt die Schachlogik an die Klasse und speichert diese.
+
+	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
+*/
 	void setLogik(SchachLogik* logik);
 	~SpielerMensch();
 };

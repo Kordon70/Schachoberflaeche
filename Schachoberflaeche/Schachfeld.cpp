@@ -1,8 +1,8 @@
 #include "Schachfeld.h"
 #include <QtGui>
 
-Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes, QWidget *parent)
-    : QFrame(parent) {
+Schachfeld::Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes)
+    : QFrame(0) {
 		int size = 70;
 	this->logik = logik;
 	this->schachZug = schachZug;
