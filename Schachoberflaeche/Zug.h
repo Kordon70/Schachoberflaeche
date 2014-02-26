@@ -15,7 +15,7 @@ class Zug {
 private:
 	Position* startPosition;
 	Position* ungueltigePosition;
-	SchachLogik* logik;
+	Schachlogik* logik;
 	OberflaecheInterface* oberflaeche;
 	bool spielerAmZug;
 
@@ -32,7 +32,7 @@ public:
 
 	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
 */
-	Zug(SchachLogik* logik);
+	Zug(Schachlogik* logik);
 
 /**
 	Speichert sich die Position, von der eine Figur wegbewegt wurde.

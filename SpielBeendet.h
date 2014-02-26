@@ -23,12 +23,12 @@ public:
 
 	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
 */
-	SpielBeendet(SchachLogik* logik);
+	SpielBeendet(Schachlogik* logik);
 	~SpielBeendet();
 
 private:
 	QWidget* partieBeendet;
-	SchachLogik* logik;
+	Schachlogik* logik;
 
 	QLabel* ausgabe();
 

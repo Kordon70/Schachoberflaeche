@@ -25,7 +25,7 @@ class QDropEvent;
     Q_OBJECT
 private:
 
-	SchachLogik* logik;
+	Schachlogik* logik;
 	Zug* schachZug;
     QLabel* bild;
 	QLabel* altesBild;
@@ -45,7 +45,7 @@ public:
 	@param schachZug Zug der die Bewegungen der Figuren auf dem Feld registriert.
 	@param positionDesFeldes Position des einzelen Feld auf dem ganzen Schachfeld.
 */
-	Schachfeld(SchachLogik* logik, Zug* schachZug, Position* positionDesFeldes);
+	Schachfeld(Schachlogik* logik, Zug* schachZug, Position* positionDesFeldes);
     ~Schachfeld();
 
 /**

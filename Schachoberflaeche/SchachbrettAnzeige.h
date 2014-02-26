@@ -23,7 +23,7 @@ class SchachbrettAnzeige : public QObject
 private:
     vector<Schachfeld*> schachFelder;
 	Schachfeld* feld;
-	SchachLogik* logik;
+	Schachlogik* logik;
 	Zug* schachZug;
 
 	Schachfeld* erzeugeFeld(Position* position);
@@ -36,7 +36,7 @@ public:
 	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
 	@param schachZug Zug der die Bewegungen der Figuren auf dem Feld registriert.
 */
-	SchachbrettAnzeige(SchachLogik* logik, Zug* schachZug);
+	SchachbrettAnzeige(Schachlogik* logik, Zug* schachZug);
 
 /**
 	Erzeugt ein horizontales Layout mit den 64 Schachfeldern.

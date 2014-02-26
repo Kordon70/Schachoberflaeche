@@ -1,6 +1,6 @@
 #include "SchachbrettAnzeige.h"
 
-SchachbrettAnzeige::SchachbrettAnzeige(SchachLogik* logik, Zug* schachZug) {
+SchachbrettAnzeige::SchachbrettAnzeige(Schachlogik* logik, Zug* schachZug) {
 	this->logik= logik;
 	this->schachZug = schachZug;
 	schachFelder = vector<Schachfeld*>();		

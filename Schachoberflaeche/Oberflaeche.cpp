@@ -1,7 +1,7 @@
 #include "Oberflaeche.h"
 #include <QTextCodec>
 
-Oberflaeche::Oberflaeche(SchachLogik* logik, Zug* schachzug)
+Oberflaeche::Oberflaeche(Schachlogik* logik, Zug* schachzug)
 {
 	this->logik = logik;
 	this->schachZug = schachzug;

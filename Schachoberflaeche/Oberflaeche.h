@@ -28,7 +28,7 @@ public:
 	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
 	@param schachZug Zug der die Bewegungen der Figuren auf dem Feld registriert.
 */
-	Oberflaeche(SchachLogik* logik, Zug* schachzug);
+	Oberflaeche(Schachlogik* logik, Zug* schachzug);
 
 /**
 	Erzeugt das Fenster mit dem Schachfeld, den Knöpfen Spiel starten und Zug
@@ -44,7 +44,7 @@ public:
 
 private:
     QWidget mainWidget;
-	SchachLogik* logik;
+	Schachlogik* logik;
 	Zug* schachZug;
 	SchachbrettAnzeige* chess;
 	newGameButton* neuePartieFenster;

@@ -26,7 +26,7 @@ Farbe SpielerMensch::getSpielFarbe() {
 	return spielFarbe;
 }
 
-void SpielerMensch::setLogik(SchachLogik* logik) {
+void SpielerMensch::setLogik(Schachlogik* logik) {
 	this->logik = logik;
 }
 

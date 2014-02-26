@@ -17,7 +17,7 @@ class SpielerMensch : public SpielerBenachrichtigung
 private:
 	Zug* schachZug;
 	Farbe spielFarbe;
-	SchachLogik* logik;
+	Schachlogik* logik;
 
 public:
 
@@ -59,7 +59,7 @@ public:
 
 	@param logik Schachlogik die für den Spielablauf verantwortlich ist.
 */
-	void setLogik(SchachLogik* logik);
+	void setLogik(Schachlogik* logik);
 	~SpielerMensch();
 };
 

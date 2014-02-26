@@ -1,7 +1,7 @@
 #include "zug.h"
 
 
-Zug::Zug(SchachLogik* logik) {
+Zug::Zug(Schachlogik* logik) {
 	this->logik = logik;
 	spielerAmZug = false;
 	startPosition = ungueltigePosition = new Position(-1,-1);

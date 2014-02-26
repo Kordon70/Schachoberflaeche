@@ -1,7 +1,7 @@
 #include "SpielBeendet.h"
 
 
-SpielBeendet::SpielBeendet(SchachLogik* logik) : QObject (0) {
+SpielBeendet::SpielBeendet(Schachlogik* logik) : QObject (0) {
 	this->logik = logik;
 	partieBeendet = new QWidget;
 	partieBeendet->setWindowModality(Qt::ApplicationModal);

@@ -30,12 +30,12 @@ public:
 	@param schachZug Zug der die Bewegungen der Figuren auf dem Feld registriert.
 	@param oberlaeche Hauptfenster der Applikation.
 */
-    newGameButton(SchachLogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche);
+    newGameButton(Schachlogik* logik, Zug* schachZug, OberflaecheInterface* oberlaeche);
 	~newGameButton();
 
 private:
     QWidget* neuePartie;
-	SchachLogik* logik;
+	Schachlogik* logik;
 	Zug* schachZug;
 	OberflaecheInterface* oberlaeche;
 
