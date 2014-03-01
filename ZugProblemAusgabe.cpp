@@ -28,7 +28,7 @@ QLabel* ZugProblemAusgabe::getFehlertext(ZugProblem zugProblem) {
 	case STARTFELD_IST_LEER:
 		return new QLabel("Es steht keine Figur auf dem \nStartfeld, die bewegt werden kann.");
 	case ZUG_NICHT_REGELKONFORM:
-		return new QLabel("Der Zug ist nicht Regelkonform.");
+		return new QLabel("Der Zug ist nicht regelkonform.");
 	case START_ODER_ZIELPOSITION_UNGUELTIG:
 		return new QLabel(QString::fromStdWString(L"Das Start-/Zielfeld ist keine \ngültige Position."));
 	case SPIEL_NOCH_NICHT_GESTARTET:
