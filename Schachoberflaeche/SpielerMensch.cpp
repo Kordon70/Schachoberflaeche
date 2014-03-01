@@ -10,7 +10,7 @@ void SpielerMensch::duBistDran() {
 	schachZug->zugBeginnen();
 }
 
-FigurTyp SpielerMensch::tauscheBauern() {
+FigurTyp SpielerMensch::tauscheBauern(std::vector<FigurTyp> moeglicheFiguren) {
 	FigurTyp gewaehlt;
 	new FigurenWechsel(gewaehlt);
 	return gewaehlt;

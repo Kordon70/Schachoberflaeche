@@ -25,9 +25,11 @@ public:
 	Öffnet ein Fenster, indem ausgewählt wird, gegen welche Figur der Bauer, der das andere
 	Ende des Schachfeldes erreicht hat getauscht wird.
 
+	@param moeglicheFiguren FigurTypen gegen die der Bauer getauscht werden kann.
+
 	@return FigurTyp gegen den der Bauer eingetauscht werden soll (DAME, LAEUFER, SPRINGER, TURM).
 */
-	FigurTyp tauscheBauern();
+	FigurTyp tauscheBauern(std::vector<FigurTyp> moeglicheFiguren);
 
 /**
 	Der Zug wartet aber jetzt auf Bewegungen der Figuren und führt eine Bewegung aus.
