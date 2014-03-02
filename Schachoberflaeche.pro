@@ -25,4 +25,4 @@ HEADERS  += \
     Schachoberflaeche/newgamebutton.h
 
 RESOURCES += \
-    Schachoberflaeche/Schachfiguren.qrc
+    Schachoberflaeche/Schachfiguren.qrc OTHER_FILES += Schachoberflaeche\images\icon.ico RC_FILE = Schachoberflaeche.rc
