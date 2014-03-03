@@ -96,8 +96,12 @@
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>xcopy .\Schachoberflaeche\lib\release\*.*  $(SolutionDir)$(Configuration)\Schach\ /S /Y</Command>
+      <Command>xcopy .\Schachoberflaeche\lib\release\*.*  $(SolutionDir)$(Configuration)\Schach\ /S /Y
+xcopy .\icon\*.*  $(SolutionDir)$(Configuration)\Schach\icon\ /S /Y</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>rd /s /q "$(SolutionDir)$(Configuration)\Schach\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,8 +143,12 @@
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>xcopy ".\Schachoberflaeche\lib\debug\*.*"  "$(SolutionDir)$(Configuration)\Schach\" /S /Y</Command>
+      <Command>xcopy ".\Schachoberflaeche\lib\debug\*.*"  "$(SolutionDir)$(Configuration)\Schach\" /S /Y
+xcopy ".\icon\*.*"  "$(SolutionDir)$(Configuration)\Schach\icon\" /S /Y</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>rd /s /q "$(SolutionDir)$(Configuration)\Schach\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FigurenWechsel.cpp" />
